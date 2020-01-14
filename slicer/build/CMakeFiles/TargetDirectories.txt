@@ -1,0 +1,3 @@
+/Users/rui/Documents/GitHub/My_Slicer/slicer/build/CMakeFiles/rebuild_cache.dir
+/Users/rui/Documents/GitHub/My_Slicer/slicer/build/CMakeFiles/edit_cache.dir
+/Users/rui/Documents/GitHub/My_Slicer/slicer/build/CMakeFiles/slicer.dir

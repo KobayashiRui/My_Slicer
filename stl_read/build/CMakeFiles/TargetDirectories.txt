@@ -1,0 +1,4 @@
+/Users/rui/Documents/GitHub/My_Slicer/stl_read/build/CMakeFiles/rebuild_cache.dir
+/Users/rui/Documents/GitHub/My_Slicer/stl_read/build/CMakeFiles/edit_cache.dir
+/Users/rui/Documents/GitHub/My_Slicer/stl_read/build/CMakeFiles/stl_read_static.dir
+/Users/rui/Documents/GitHub/My_Slicer/stl_read/build/CMakeFiles/stl_read.dir
