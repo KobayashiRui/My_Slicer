@@ -4,8 +4,6 @@
 #include <string>
 #include <vector>
 
-namespace stl {
-
   struct point {
     float x;
     float y;
@@ -35,6 +33,6 @@ namespace stl {
 
   stl_data parse_stl(const std::string& stl_path);
 
-}
-
 #endif
+
+

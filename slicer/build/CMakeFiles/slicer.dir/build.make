@@ -79,7 +79,7 @@ slicer_EXTERNAL_OBJECTS =
 
 slicer: CMakeFiles/slicer.dir/main.cpp.o
 slicer: CMakeFiles/slicer.dir/build.make
-slicer: /Users/rui/Documents/GitHub/My_Slicer/stl_read/build/libstl_read_static.a
+slicer: stl_read/libstl_read.dylib
 slicer: CMakeFiles/slicer.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/rui/Documents/GitHub/My_Slicer/slicer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable slicer"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/slicer.dir/link.txt --verbose=$(VERBOSE)

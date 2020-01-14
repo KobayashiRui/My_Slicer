@@ -6,7 +6,6 @@
 
 #include "stl_read.h"
 
-namespace stl {
 
   std::ostream& operator<<(std::ostream& out, const point p) {
     out << "#(" << p.x << ", " << p.y << ", " << p.z << ")#" << std::endl;
@@ -63,4 +62,3 @@ namespace stl {
     return info;
   }
 
-}

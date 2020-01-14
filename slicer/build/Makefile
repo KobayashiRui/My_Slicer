@@ -123,6 +123,19 @@ slicer/fast:
 	$(MAKE) -f CMakeFiles/slicer.dir/build.make CMakeFiles/slicer.dir/build
 .PHONY : slicer/fast
 
+#=============================================================================
+# Target rules for targets named stl_read
+
+# Build rule for target.
+stl_read: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 stl_read
+.PHONY : stl_read
+
+# fast build rule for target.
+stl_read/fast:
+	$(MAKE) -f stl_read/CMakeFiles/stl_read.dir/build.make stl_read/CMakeFiles/stl_read.dir/build
+.PHONY : stl_read/fast
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -159,6 +172,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... slicer"
+	@echo "... stl_read"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

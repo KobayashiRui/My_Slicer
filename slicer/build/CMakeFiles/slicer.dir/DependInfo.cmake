@@ -10,11 +10,13 @@ set(CMAKE_CXX_COMPILER_ID "AppleClang")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "../../stl_read"
+  ".././stl_read"
+  "/usr/local/Cellar/eigen/3.3.7/include/eigen3"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
+  "/Users/rui/Documents/GitHub/My_Slicer/slicer/build/stl_read/CMakeFiles/stl_read.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

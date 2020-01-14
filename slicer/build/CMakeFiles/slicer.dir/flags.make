@@ -6,5 +6,5 @@ CXX_FLAGS =  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacO
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/Users/rui/Documents/GitHub/My_Slicer/slicer/../stl_read 
+CXX_INCLUDES = -I/Users/rui/Documents/GitHub/My_Slicer/slicer/./stl_read -I/usr/local/Cellar/eigen/3.3.7/include/eigen3 
 

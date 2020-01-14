@@ -10,6 +10,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "../CMakeLists.txt"
   "CMakeFiles/3.15.3/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.15.3/CMakeSystem.cmake"
+  "../stl_read/CMakeLists.txt"
   "/usr/local/Cellar/cmake/3.15.3/share/cmake/Modules/CMakeCXXInformation.cmake"
   "/usr/local/Cellar/cmake/3.15.3/share/cmake/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake"
   "/usr/local/Cellar/cmake/3.15.3/share/cmake/Modules/CMakeCommonLanguageInclude.cmake"
@@ -40,9 +41,11 @@ set(CMAKE_MAKEFILE_OUTPUTS
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
+  "stl_read/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/slicer.dir/DependInfo.cmake"
+  "stl_read/CMakeFiles/stl_read.dir/DependInfo.cmake"
   )
