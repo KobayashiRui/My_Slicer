@@ -16,6 +16,9 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   ".././stl_read"
+  ".././matplotlib"
+  "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/include/python3.7m"
+  "/usr/local/lib/python3.7/site-packages/numpy/core/include"
   "/usr/local/Cellar/eigen/3.3.7/include/eigen3"
   "../stl_read/."
   )

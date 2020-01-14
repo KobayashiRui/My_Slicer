@@ -7,8 +7,11 @@
 
 #include "stl_read.h"
 #include "slice_data.h"
+#include "matplotlibcpp.h"
 
 #define accuracy 100000
+
+namespace plt = matplotlibcpp;
 
 void make_line(std::vector<line>&,plane, triangle);
 
@@ -44,14 +47,28 @@ int main(int argc, char *argv[])
     make_line(line_datas,slice_plane, t);
   }
 
+  std::vector<std::vector<double>> x, y, z;
+  std::vector<double> x_row,y_row,z_row;
+  //std::vector<double> x2_row,y2_row,z2_row;
   for (auto line : line_datas){
     std::cout << "LINE_DATA-----------" << std::endl;
     std::cout << "Data:" << line.p1.x << "," << line.p1.y << "," << line.p1.z << std::endl;
     std::cout << "Data:" << line.p2.x << "," << line.p2.y << "," << line.p2.z << std::endl;
     std::cout << "--------------------" << std::endl;
+    x_row.push_back(line.p1.x);
+    x_row.push_back(line.p2.x);
+    y_row.push_back(line.p1.y);
+    y_row.push_back(line.p2.y);
+    z_row.push_back(line.p1.z);
+    z_row.push_back(line.p2.z);
   }
+    x.push_back(x_row);
+    y.push_back(y_row);
+    z.push_back(z_row);
   std::cout << "finish" << std::endl;
-
+    
+    plt::plot_surface(x,y,z);
+    plt::show();
 }
 
 void make_line(std::vector<line>&line_datas ,plane _plane, triangle _triangle){

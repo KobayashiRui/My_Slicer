@@ -6,5 +6,5 @@ CXX_FLAGS =  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacO
 
 CXX_DEFINES = -Dstl_read_EXPORTS
 
-CXX_INCLUDES = -I/Users/rui/Documents/GitHub/My_Slicer/slicer/./stl_read -I/usr/local/Cellar/eigen/3.3.7/include/eigen3 -I/Users/rui/Documents/GitHub/My_Slicer/slicer/stl_read/. 
+CXX_INCLUDES = -I/Users/rui/Documents/GitHub/My_Slicer/slicer/./stl_read -I/Users/rui/Documents/GitHub/My_Slicer/slicer/./matplotlib -I/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/include/python3.7m -I/usr/local/lib/python3.7/site-packages/numpy/core/include -I/usr/local/Cellar/eigen/3.3.7/include/eigen3 -I/Users/rui/Documents/GitHub/My_Slicer/slicer/stl_read/. 
 
