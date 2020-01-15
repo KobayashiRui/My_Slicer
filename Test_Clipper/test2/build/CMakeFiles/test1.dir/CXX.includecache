@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/rui/Documents/GitHub/My_Slicer/Test_Clipper/test2/main.cpp
+polyclipping/clipper.hpp
+/Users/rui/Documents/GitHub/My_Slicer/Test_Clipper/test2/polyclipping/clipper.hpp
+iostream
+-
+
+/usr/local/include/polyclipping/clipper.hpp
+vector
+-
+list
+-
+set
+-
+stdexcept
+-
+cstring
+-
+cstdlib
+-
+ostream
+-
+functional
+-
+queue
+-
+

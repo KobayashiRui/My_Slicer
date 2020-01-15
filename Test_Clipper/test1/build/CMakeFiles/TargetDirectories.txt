@@ -1,0 +1,3 @@
+/Users/rui/Documents/GitHub/My_Slicer/Test_Clipper/test1/build/CMakeFiles/rebuild_cache.dir
+/Users/rui/Documents/GitHub/My_Slicer/Test_Clipper/test1/build/CMakeFiles/edit_cache.dir
+/Users/rui/Documents/GitHub/My_Slicer/Test_Clipper/test1/build/CMakeFiles/test1.dir
