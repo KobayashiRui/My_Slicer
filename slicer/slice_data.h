@@ -17,4 +17,5 @@ struct plane {
     plane(point _p, point _normal) : p(_p), normal(_normal) {}
 };
 
+
 #endif

@@ -10,10 +10,12 @@
 #include "matplotlibcpp.h"
 
 #define accuracy 100000
+#define line_diff 0.0001
 
 namespace plt = matplotlibcpp;
 
 void make_line(std::vector<line>&,plane, triangle);
+void make_polygon(std::vector<line>&, std::vector<point>&);
 
 int main(int argc, char *argv[])
 {
@@ -37,38 +39,59 @@ int main(int argc, char *argv[])
   //  std::cout << t << std::endl;
   //}
 
-  //交点の計算(線分を求める)
   std::vector<line> line_datas;
+
+  //平面の定義
   point origin = point(0,0,0.1);
   point plane_normal = point(0,0,1);
   plane slice_plane = plane(origin, plane_normal);
 
+  //line segumentの作成
+  //交点の計算(線分を求める)
   for (auto t : info.triangles) {
     make_line(line_datas,slice_plane, t);
   }
 
-  std::vector<std::vector<double>> x, y, z;
-  std::vector<double> x_row,y_row,z_row;
-  //std::vector<double> x2_row,y2_row,z2_row;
-  for (auto line : line_datas){
-    std::cout << "LINE_DATA-----------" << std::endl;
-    std::cout << "Data:" << line.p1.x << "," << line.p1.y << "," << line.p1.z << std::endl;
-    std::cout << "Data:" << line.p2.x << "," << line.p2.y << "," << line.p2.z << std::endl;
-    std::cout << "--------------------" << std::endl;
-    x_row.push_back(line.p1.x);
-    x_row.push_back(line.p2.x);
-    y_row.push_back(line.p1.y);
-    y_row.push_back(line.p2.y);
-    z_row.push_back(line.p1.z);
-    z_row.push_back(line.p2.z);
+  std::vector<point> polygon;
+  std::vector<std::vector<point>> polygons;
+
+  //line segumentの並びかえ
+  //TODO x,yの最小を最初に選択するようにする?
+  //line_datasがなくなるまでループする
+  int iter = 0;
+  while(true){
+    std::cout << "number: " << iter << std::endl;
+    //polygon内の要素を全て削除
+    polygon.clear();
+    //polygonの作成
+    make_polygon(line_datas, polygon);
+    //polygonsへ追加
+    polygons.push_back(polygon);
+    //line_datasのサイズを確認
+    if(line_datas.size() == 0){
+      break;
+    }
+    iter++;
   }
-    x.push_back(x_row);
-    y.push_back(y_row);
-    z.push_back(z_row);
-  std::cout << "finish" << std::endl;
-    
-    plt::plot_surface(x,y,z);
-    plt::show();
+
+
+  for(int poly=0; poly < polygons.size(); poly++)
+  {
+    std::vector<double> x_row,y_row,z_row;
+    //std::vector<double> x2_row,y2_row,z2_row;
+    for(int idx=0; idx < polygons[poly].size(); idx++)
+    {
+      x_row.push_back(polygons[poly][idx].x);
+      y_row.push_back(polygons[poly][idx].y);
+    }
+    x_row.push_back(polygons[poly][0].x);
+    y_row.push_back(polygons[poly][0].y);
+    plt::plot(x_row,y_row);
+  }
+
+
+
+  plt::show();
 }
 
 void make_line(std::vector<line>&line_datas ,plane _plane, triangle _triangle){
@@ -162,4 +185,55 @@ void make_line(std::vector<line>&line_datas ,plane _plane, triangle _triangle){
     }
   }
   
+}
+
+void make_polygon(std::vector<line>&line_datas, std::vector<point>&polygon)
+{
+  //とりあえず先頭の点データを取得
+  bool end_flag = false;
+  point search_p = line_datas[0].p1;
+  point goal_p = line_datas[0].p2;
+  //先頭のlineデータを削除
+  polygon.push_back(search_p);
+  line_datas.erase(line_datas.begin());
+
+  //goal_pに辿りつくまでループ
+  while (!end_flag)
+  {
+    for(int idx=0; idx < line_datas.size(); idx++)
+    {
+      
+      //線分の両端に対して距離を計算
+      if(sqrt(pow(line_datas[idx].p1.x - search_p.x,2) + pow(line_datas[idx].p1.y - search_p.y,2) + pow(line_datas[idx].p1.z - search_p.z,2) ) < line_diff) //ユークリッド距離の計算(p1)
+      {
+        //次のsearch_pを定義
+        search_p = line_datas[idx].p2;
+        polygon.push_back(line_datas[idx].p1);
+        polygon.push_back(line_datas[idx].p2);
+        line_datas.erase(line_datas.begin() + idx);
+        //search_pとgoal_pの計算(ほぼ同じなら終了する)
+        if(sqrt(pow(goal_p.x - search_p.x,2) + pow(goal_p.y - search_p.y,2) + pow(goal_p.z - search_p.z,2) ) < line_diff)
+        {
+          polygon.push_back(goal_p);
+          end_flag = true;
+        }
+        break;
+      }else if(sqrt(pow(line_datas[idx].p2.x - search_p.x,2) + pow(line_datas[idx].p2.y - search_p.y,2) + pow(line_datas[idx].p2.z - search_p.z,2) ) < line_diff)//ユークリッド距離の計算(p2)
+      {
+        //次のsearch_pを定義
+        search_p = line_datas[idx].p1;
+        polygon.push_back(line_datas[idx].p2);
+        polygon.push_back(line_datas[idx].p1);
+        line_datas.erase(line_datas.begin() + idx);
+        //search_pとgoal_pの計算(ほぼ同じなら終了する)
+        if(sqrt(pow(goal_p.x - search_p.x,2) + pow(goal_p.y - search_p.y,2) + pow(goal_p.z - search_p.z,2) ) < line_diff)
+        {
+          polygon.push_back(goal_p);
+          end_flag = true;
+        }
+        break;
+
+      }
+    }
+  }
 }
