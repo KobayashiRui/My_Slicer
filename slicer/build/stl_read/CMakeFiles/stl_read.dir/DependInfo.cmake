@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/rui/Documents/GitHub/My_Slicer/slicer/stl_read/stl_read.cpp" "/Users/rui/Documents/GitHub/My_Slicer/slicer/build/stl_read/CMakeFiles/stl_read.dir/stl_read.cpp.o"
+  "/Users/rui/Documents/GitHub/My_Slicer/Slicer/stl_read/stl_read.cpp" "/Users/rui/Documents/GitHub/My_Slicer/Slicer/build/stl_read/CMakeFiles/stl_read.dir/stl_read.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 
@@ -15,10 +15,9 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
+  "/usr/local/include"
+  "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/OpenGL.framework"
   ".././stl_read"
-  ".././matplotlib"
-  "/usr/local/Cellar/python/3.7.4_1/Frameworks/Python.framework/Versions/3.7/include/python3.7m"
-  "/usr/local/lib/python3.7/site-packages/numpy/core/include"
   "/usr/local/Cellar/eigen/3.3.7/include/eigen3"
   "../stl_read/."
   )

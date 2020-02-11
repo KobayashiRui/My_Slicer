@@ -1,3 +1,5 @@
+#define GLFW_INCLUDE_GLU
+#include <GLFW/glfw3.h>
 #include <iostream>
 #include <cassert>
 #include <vector>
@@ -7,15 +9,30 @@
 
 #include "stl_read.h"
 #include "slice_data.h"
-#include "matplotlibcpp.h"
 
-#define accuracy 100000
-#define line_diff 0.0001
+#define accuracy 1e10
+#define line_diff 1e-10
 
-namespace plt = matplotlibcpp;
+static GLFWwindow*  aWindow;
+static int          aWidth = 640;
+static int          aHeight = 480;
+static std::string  aTitle = "Line";
+static int          camera_move_dead = 1;
+static int          camera_move_sens = 3;
+static int          cam_deg2_min = 1;
+static int          cam_deg2_max = 160;
+
 
 void make_line(std::vector<line>&,plane, triangle);
 void make_polygon(std::vector<line>&, std::vector<point>&);
+void make_polygon2(std::vector<line>&, std::vector<point>&);
+void drawLine(std::vector<std::vector<point>>);
+
+//OpenGL用
+double cam_deg1 = 45, cam_deg2 = 1;
+double cam_length = 50;
+double mousex, mousey, old_mousex, old_mousey;
+bool flag = false;
 
 int main(int argc, char *argv[])
 {
@@ -35,63 +52,149 @@ int main(int argc, char *argv[])
   std::cout << "STL HEADER = " << info.name << std::endl;
   std::cout << "# triangles = " << triangles.size() << std::endl;
   std::cout << "End" << std::endl;
-  //for (auto t : info.triangles) {
-  //  std::cout << t << std::endl;
-  //}
 
+
+
+  std::vector<std::vector<std::vector<point>>> layer_polygons; //各レイヤのごとにポリゴンデータ格納す
+
+  //TODO STLのサイズに合わせてルプ数を決定する
   std::vector<line> line_datas;
+  for(int i = 35; i < 36; i++){
 
-  //平面の定義
-  point origin = point(0,0,0.1);
-  point plane_normal = point(0,0,1);
-  plane slice_plane = plane(origin, plane_normal);
+    std::cout << "Count: " << i << std::endl;
+    //線分データをクリア
+    line_datas.clear();
 
-  //line segumentの作成
-  //交点の計算(線分を求める)
-  for (auto t : info.triangles) {
-    make_line(line_datas,slice_plane, t);
-  }
+    //平面の定義
+    point origin = point(0, 0, i * 0.2);
+    point plane_normal = point(0, 0, 1);
+    plane slice_plane = plane(origin, plane_normal);
 
-  std::vector<point> polygon;
-  std::vector<std::vector<point>> polygons;
-
-  //line segumentの並びかえ
-  //TODO x,yの最小を最初に選択するようにする?
-  //line_datasがなくなるまでループする
-  int iter = 0;
-  while(true){
-    std::cout << "number: " << iter << std::endl;
-    //polygon内の要素を全て削除
-    polygon.clear();
-    //polygonの作成
-    make_polygon(line_datas, polygon);
-    //polygonsへ追加
-    polygons.push_back(polygon);
-    //line_datasのサイズを確認
-    if(line_datas.size() == 0){
-      break;
+    //line segumentの作成
+    //交点の計算(線分を求める)
+    int count_make_line = 0;
+    for (auto t : info.triangles) {
+      make_line(line_datas,slice_plane, t); //slice_planeにてスライスした結果の線分がline_datasに格納される
+      count_make_line ++;
     }
-    iter++;
+    std::cout << "END line" << std::endl;
+
+    std::vector<point> polygon;
+    std::vector<std::vector<point>> polygons;
+
+    //line segumentの並びかえ
+    //TODO x,yの最小を最初に選択するようにする?
+    //line_datasがなくなるまでループする
+    while(true){
+      //polygon内の要素を全て削除
+      //std::cout << "line_size " << line_datas.size() << std::endl;
+      polygon.clear();
+      //polygonの作成
+      std::cout << "Make Polygon" << std::endl;
+      make_polygon2(line_datas, polygon);
+      std::cout << "END Polygon:" << polygon.size() << std::endl;
+      //polygonsへ追加
+      if(polygon.size() >= 3){
+        polygons.push_back(polygon);
+      }
+      //line_datasのサイズを確認
+      if(line_datas.size() < 3){
+        break;
+      }
+    }
+    std::cout << "Poygon num:" << polygons.size() << std::endl;
+
+    //layerデータを保存
+    layer_polygons.push_back(polygons);
   }
+  std::cout << "END slice!!" <<std::endl;
 
-
-  for(int poly=0; poly < polygons.size(); poly++)
+  //openglにて表示
+  /* GLFW3の初期化 */
+  if(! glfwInit() )
   {
-    std::vector<double> x_row,y_row,z_row;
-    //std::vector<double> x2_row,y2_row,z2_row;
-    for(int idx=0; idx < polygons[poly].size(); idx++)
-    {
-      x_row.push_back(polygons[poly][idx].x);
-      y_row.push_back(polygons[poly][idx].y);
-    }
-    x_row.push_back(polygons[poly][0].x);
-    y_row.push_back(polygons[poly][0].y);
-    plt::plot(x_row,y_row);
+      std::cerr << "glfwInit failed." << std::endl;
+      exit( EXIT_FAILURE );
   }
 
+  //windowの作成
+  aWindow = glfwCreateWindow( aWidth, aHeight, aTitle.c_str(), nullptr, nullptr );
+  if(! aWindow )
+  {
+      std::cerr << "glfwCreateWindow failed." << std::endl;
+      glfwTerminate();
+      exit( EXIT_FAILURE );
+  }
+
+  glfwMakeContextCurrent( aWindow );
+
+  // メインループ。
+  while(! glfwWindowShouldClose( aWindow ))
+  {
+    //マウス操作(視点の回転)
+    if( glfwGetMouseButton(aWindow, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS ) {
+        glfwGetCursorPos(aWindow, &mousex, &mousey);
+        if(old_mousex == -1 || old_mousey==-1){
+            old_mousex = mousex;
+            old_mousey = mousey;
+        }
+        if(mousex - old_mousex >= camera_move_dead){
+            cam_deg1 -= camera_move_sens;
+        }else if(mousex - old_mousex <= -1*camera_move_dead){
+            cam_deg1 += camera_move_sens;
+        }
+
+        if(mousey -old_mousey >= camera_move_dead && cam_deg2 >= (camera_move_sens + cam_deg2_min) ){
+            cam_deg2 -= camera_move_sens;
+        }else if(mousey - old_mousey <= -1*camera_move_dead && cam_deg2 <= cam_deg2_max){
+            cam_deg2 += camera_move_sens;
+        }
+
+        old_mousex = mousex;
+        old_mousey = mousey;
+
+    }else{
+        mousex=-1;
+        mousey=-1;
+        old_mousex=-1;
+        old_mousey=-1;
+    }
+
+    /* 初期化 */
+
+    // 画面をクリア。
+    glClear(GL_COLOR_BUFFER_BIT);
+    // 変換行列の初期化。ここで初期化しないと延々と同じ行列に積算される。
+    glLoadIdentity();
+    /* 更新 */
+    // 現在のウィンドウの大きさを取得。
+    int width, height;
+    glfwGetFramebufferSize( aWindow, &width, &height );
+    // ビューポートの更新。
+    glViewport( 0, 0, width, height );
+    // 透視投影。 //これないと表示されない
+    gluPerspective( 30.0, (double)width / (double)height, 1.0, 100.0 );
+    
+    //カメラ
+    double cam_x,cam_y,cam_z;
+    cam_x = cam_length * sin((cam_deg2*M_PI)/180)*cos((cam_deg1*M_PI)/180);
+    cam_y = cam_length * sin((cam_deg2*M_PI)/180)*sin((cam_deg1*M_PI)/180);
+    cam_z = cam_length * cos((cam_deg2*M_PI)/180);
+    gluLookAt( cam_x, cam_y, cam_z,  0.0, 0.0, 0.0,  0.0, 0.0, 1.0 );
 
 
-  plt::show();
+    for (int i =0; i < layer_polygons.size(); i++){
+      drawLine(layer_polygons[i]);
+    }
+
+    /* ダブルバッファのスワップとイベントのポーリング */
+    glfwSwapBuffers( aWindow );
+    glfwPollEvents();
+  }
+
+  // GLFW3 の終了。
+  glfwTerminate();
+  return EXIT_SUCCESS;
 }
 
 void make_line(std::vector<line>&line_datas ,plane _plane, triangle _triangle){
@@ -111,9 +214,10 @@ void make_line(std::vector<line>&line_datas ,plane _plane, triangle _triangle){
   float A = (std::round(p_normal.dot(ap)*accuracy))/accuracy;
   float B = (std::round(p_normal.dot(bp)*accuracy))/accuracy;
   float C = (std::round(p_normal.dot(cp)*accuracy))/accuracy;
+  //std::cout << "points" << "::A:" << A << ", B:" << B << ", C:" << C << std::endl;
 
   //各頂点が平面上にある = 終了
-  if( A == 0 && B == 0 && C==0){
+  if( abs(A) <= 0.00001 && abs(B) <= 0.00001 && abs(C) <= 0.00001){
     return ;
   }
 
@@ -121,13 +225,13 @@ void make_line(std::vector<line>&line_datas ,plane _plane, triangle _triangle){
   std::vector<point> line_points;
   
   //平面上にある頂点を取得
-  if( A == 0){
+  if( abs(A) <= 0.00001){
     line_points.push_back(_triangle.v1);
   }
-  if( B == 0){
+  if( abs(B) <= 0.00001){
     line_points.push_back(_triangle.v2);
   }
-  if( C == 0){
+  if( abs(C) <= 0.00001){
     line_points.push_back(_triangle.v3);
   }
 
@@ -184,6 +288,11 @@ void make_line(std::vector<line>&line_datas ,plane _plane, triangle _triangle){
     return ;
     }
   }
+
+  //if(line_points.size() == 1){
+  //  line_datas.push_back(line(line_points[0], line_points[0]));
+  //}
+
   
 }
 
@@ -196,44 +305,216 @@ void make_polygon(std::vector<line>&line_datas, std::vector<point>&polygon)
   //先頭のlineデータを削除
   polygon.push_back(search_p);
   line_datas.erase(line_datas.begin());
+  int old_line_num = line_datas.size();
 
+  double line_diff_p1, line_diff_p2;
   //goal_pに辿りつくまでループ
-  while (!end_flag)
+  double diff_acc = 1;
+  while (!end_flag && line_datas.size()!=0 )
   {
     for(int idx=0; idx < line_datas.size(); idx++)
     {
-      
       //線分の両端に対して距離を計算
-      if(sqrt(pow(line_datas[idx].p1.x - search_p.x,2) + pow(line_datas[idx].p1.y - search_p.y,2) + pow(line_datas[idx].p1.z - search_p.z,2) ) < line_diff) //ユークリッド距離の計算(p1)
+      //std::cout << "length_p1: " << sqrt(pow(line_datas[idx].p1.x - search_p.x,2) + pow(line_datas[idx].p1.y - search_p.y,2) + pow(line_datas[idx].p1.z - search_p.z,2) ) << std::endl;
+      //std::cout << "length_p2: " << sqrt(pow(line_datas[idx].p2.x - search_p.x,2) + pow(line_datas[idx].p2.y - search_p.y,2) + pow(line_datas[idx].p2.z - search_p.z,2) ) << std::endl;
+
+      //p1とp2のline_diffを算出!
+      line_diff_p1 = sqrt(pow(line_datas[idx].p1.x - search_p.x,2) + pow(line_datas[idx].p1.y - search_p.y,2) + pow(line_datas[idx].p1.z - search_p.z,2) );
+      line_diff_p2 = sqrt(pow(line_datas[idx].p2.x - search_p.x,2) + pow(line_datas[idx].p2.y - search_p.y,2) + pow(line_datas[idx].p2.z - search_p.z,2) );
+      //std::cout << "l1: " << line_diff_p1 << ", l2: " << line_diff_p2 << std::endl;
+      
+
+      if (line_diff_p1 <= (line_diff * diff_acc) || line_diff_p2 <= (line_diff* diff_acc) )
       {
-        //次のsearch_pを定義
-        search_p = line_datas[idx].p2;
-        polygon.push_back(line_datas[idx].p1);
-        polygon.push_back(line_datas[idx].p2);
-        line_datas.erase(line_datas.begin() + idx);
-        //search_pとgoal_pの計算(ほぼ同じなら終了する)
-        if(sqrt(pow(goal_p.x - search_p.x,2) + pow(goal_p.y - search_p.y,2) + pow(goal_p.z - search_p.z,2) ) < line_diff)
+        //std::cout <<  "line diff" << std::endl;
+        diff_acc = 1;
+        if(line_diff_p1 <= line_diff_p2 ) //ユークリッド距離の計算(p1)
         {
-          polygon.push_back(goal_p);
-          end_flag = true;
+          //次のsearch_pを定義
+          //std::cout << "ok p1" << std::endl;
+          search_p = line_datas[idx].p2;
+          polygon.push_back(line_datas[idx].p1);
+          polygon.push_back(line_datas[idx].p2);
+          line_datas.erase(line_datas.begin() + idx);
+          //search_pとgoal_pの計算(ほぼ同じなら終了する)
+          //std::cout << "goal diff : " << sqrt(pow(goal_p.x - search_p.x,2) + pow(goal_p.y - search_p.y,2) + pow(goal_p.z - search_p.z,2) ) << std::endl;
+          if(sqrt(pow(goal_p.x - search_p.x,2) + pow(goal_p.y - search_p.y,2) + pow(goal_p.z - search_p.z,2) ) <= line_diff)
+          {
+            polygon.push_back(goal_p);
+            end_flag = true;
+          }
+          break;
+        }else {
+          //次のsearch_pを定義
+          //std::cout << "ok p2" << std::endl;
+          search_p = line_datas[idx].p1;
+          polygon.push_back(line_datas[idx].p2);
+          polygon.push_back(line_datas[idx].p1);
+          line_datas.erase(line_datas.begin() + idx);
+          //search_pとgoal_pの計算(ほぼ同じなら終了する)
+          //std::cout << "goal diff : " << sqrt(pow(goal_p.x - search_p.x,2) + pow(goal_p.y - search_p.y,2) + pow(goal_p.z - search_p.z,2) ) << std::endl;
+          if(sqrt(pow(goal_p.x - search_p.x,2) + pow(goal_p.y - search_p.y,2) + pow(goal_p.z - search_p.z,2) ) <= line_diff)
+          {
+            polygon.push_back(goal_p);
+            end_flag = true;
+          }
+          break;
         }
+
+        //if(sqrt(pow(goal_p.x - search_p.x,2) + pow(goal_p.y - search_p.y,2) + pow(goal_p.z - search_p.z,2) ) == 0){
+        //  std::cout << "END??" << std::endl;
+        //    polygon.push_back(goal_p);
+        //    end_flag = true;
+        //    break;
+        //}
+      
+      }
+
+      
+    }
+
+    if(line_datas.size()- old_line_num == 0){
+      //std::cout << "force " << std::endl;
+
+      std::cout << "line num" << line_datas.size() << std::endl;
+      if(diff_acc > 100000){
+        polygon.clear();
         break;
-      }else if(sqrt(pow(line_datas[idx].p2.x - search_p.x,2) + pow(line_datas[idx].p2.y - search_p.y,2) + pow(line_datas[idx].p2.z - search_p.z,2) ) < line_diff)//ユークリッド距離の計算(p2)
-      {
-        //次のsearch_pを定義
-        search_p = line_datas[idx].p1;
-        polygon.push_back(line_datas[idx].p2);
-        polygon.push_back(line_datas[idx].p1);
-        line_datas.erase(line_datas.begin() + idx);
-        //search_pとgoal_pの計算(ほぼ同じなら終了する)
-        if(sqrt(pow(goal_p.x - search_p.x,2) + pow(goal_p.y - search_p.y,2) + pow(goal_p.z - search_p.z,2) ) < line_diff)
-        {
-          polygon.push_back(goal_p);
-          end_flag = true;
+      }
+      diff_acc *= 10;
+      //break;
+
+    }else{
+      old_line_num = line_datas.size();
+    }
+  }
+}
+
+void make_polygon2(std::vector<line>&line_datas, std::vector<point>&polygon)
+{
+  //とりあえず先頭の点データを取得
+  bool end_flag = false;
+  point search_p = line_datas[0].p1;
+  point goal_p = line_datas[0].p2;
+  //先頭のlineデータを削除
+  polygon.push_back(search_p);
+  line_datas.erase(line_datas.begin());
+  int old_line_num = line_datas.size();
+
+  double line_diff_p1, line_diff_p2;
+  //goal_pに辿りつくまでループ
+  double diff_acc = 1;
+  while (!end_flag && line_datas.size()!=0 )
+  {
+    double most_small = -1;
+    double most_small_idx = -1;
+    bool reverse = false;
+
+    for(int idx=0; idx < line_datas.size(); idx++)
+    {
+      //線分の両端に対して距離を計算
+      //std::cout << "length_p1: " << sqrt(pow(line_datas[idx].p1.x - search_p.x,2) + pow(line_datas[idx].p1.y - search_p.y,2) + pow(line_datas[idx].p1.z - search_p.z,2) ) << std::endl;
+      //std::cout << "length_p2: " << sqrt(pow(line_datas[idx].p2.x - search_p.x,2) + pow(line_datas[idx].p2.y - search_p.y,2) + pow(line_datas[idx].p2.z - search_p.z,2) ) << std::endl;
+
+      //p1とp2のline_diffを算出!
+      line_diff_p1 = sqrt(pow(line_datas[idx].p1.x - search_p.x,2) + pow(line_datas[idx].p1.y - search_p.y,2) + pow(line_datas[idx].p1.z - search_p.z,2) );
+      line_diff_p2 = sqrt(pow(line_datas[idx].p2.x - search_p.x,2) + pow(line_datas[idx].p2.y - search_p.y,2) + pow(line_datas[idx].p2.z - search_p.z,2) );
+      //std::cout << "l1: " << line_diff_p1 << ", l2: " << line_diff_p2 << std::endl;
+      //初期値を代入
+      if(most_small == -1){
+        if(line_diff_p1 <= line_diff_p2){
+          most_small = line_diff_p1;
+          most_small_idx = idx;
+          reverse = false;
+        }else{
+          most_small = line_diff_p2;
+          most_small_idx = idx;
+          reverse = true;
         }
+      }
+
+      //最小か比較
+      if(line_diff_p1 < most_small ){
+          most_small = line_diff_p1;
+          most_small_idx = idx;
+          reverse = false;
+      }
+
+      if(line_diff_p2 < most_small){
+        most_small = line_diff_p2;
+        most_small_idx = idx;
+        reverse = true;
+      }
+
+      if(most_small == 0){
+        break;
+      }
+      //std::cout << "most small" << most_small << std::endl;
+
+      
+
+      
+    }
+
+      
+    if(most_small <= 0.5)
+    {
+      std::cout << "goal small" << most_small << std::endl;
+      if(!reverse) 
+      {
+        search_p = line_datas[most_small_idx].p2;
+        polygon.push_back(line_datas[most_small_idx].p1);
+        polygon.push_back(line_datas[most_small_idx].p2);
+        line_datas.erase(line_datas.begin() + most_small_idx);
+      }else
+      {
+        search_p = line_datas[most_small_idx].p1;
+        polygon.push_back(line_datas[most_small_idx].p2);
+        polygon.push_back(line_datas[most_small_idx].p1);
+        line_datas.erase(line_datas.begin() + most_small_idx);
+      }
+      std::cout << "dff : " << (sqrt(pow(goal_p.x - search_p.x,2) + pow(goal_p.y - search_p.y,2) + pow(goal_p.z - search_p.z,2) ))<< std::endl;
+
+      if(sqrt(pow(goal_p.x - search_p.x,2) + pow(goal_p.y - search_p.y,2) + pow(goal_p.z - search_p.z,2) ) <= line_diff)
+      {
+        polygon.push_back(goal_p);
+        end_flag = true;
+        break;
+      }
+
+    }
+    
+
+    if(line_datas.size()- old_line_num == 0){
+      //std::cout << "force " << std::endl;
+
+      polygon.clear();
+      std::cout << "line num" << line_datas.size() << std::endl;
         break;
 
-      }
+    }else{
+      old_line_num = line_datas.size();
     }
+  }
+}
+
+
+void drawLine(std::vector<std::vector<point>> polygons)
+{
+  for(int i =0; i < polygons.size(); i++){
+  //for(int i =0; i < 3; i++){
+    //一つのポリゴンを取得 polygons[i]
+    glColor3f(1.0, 0.5*i, 0.1*i/2);
+    //glLineWidth(5);
+    //glBegin(GL_LINE_LOOP);
+    //glBegin(GL_LINE_STRIP);
+
+    glPointSize(5);
+    glBegin(GL_POINTS);
+    for(int j =0; j < polygons[i].size(); j++){
+      //1つのポイントを取得 polygons[i][j]
+      glVertex3d(polygons[i][j].x, polygons[i][j].y, polygons[i][j].z );
+    }
+    glEnd();
   }
 }

@@ -6,3 +6,23 @@
 
 #IncludeRegexTransform: 
 
+/Users/rui/Documents/GitHub/My_Slicer/Slicer/stl_read/stl_read.cpp
+sstream
+-
+streambuf
+-
+cassert
+-
+iostream
+-
+fstream
+-
+stl_read.h
+/Users/rui/Documents/GitHub/My_Slicer/Slicer/stl_read/stl_read.h
+
+/Users/rui/Documents/GitHub/My_Slicer/Slicer/stl_read/stl_read.h
+string
+-
+vector
+-
+
