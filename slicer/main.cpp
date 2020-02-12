@@ -24,13 +24,14 @@ static int          cam_deg2_max = 160;
 
 
 void make_line(std::vector<line>&,plane, triangle);
+bool check_line(std::vector<line>&, line);
 void make_polygon(std::vector<line>&, std::vector<point>&);
 void make_polygon2(std::vector<line>&, std::vector<point>&);
 void drawLine(std::vector<std::vector<point>>);
 
 //OpenGL用
 double cam_deg1 = 45, cam_deg2 = 1;
-double cam_length = 50;
+double cam_length = 100;
 double mousex, mousey, old_mousex, old_mousey;
 bool flag = false;
 
@@ -59,7 +60,8 @@ int main(int argc, char *argv[])
 
   //TODO STLのサイズに合わせてルプ数を決定する
   std::vector<line> line_datas;
-  for(int i = 35; i < 36; i++){
+  //for(int i = 35; i < 36; i++){
+  for(int i = 0; i < 150; i++){
 
     std::cout << "Count: " << i << std::endl;
     //線分データをクリア
@@ -221,6 +223,8 @@ void make_line(std::vector<line>&line_datas ,plane _plane, triangle _triangle){
     return ;
   }
 
+  bool check_line_result;
+
 
   std::vector<point> line_points;
   
@@ -237,7 +241,13 @@ void make_line(std::vector<line>&line_datas ,plane _plane, triangle _triangle){
 
   //2頂点による線が決まればこれで終了
   if( line_points.size() == 2){
-    line_datas.push_back(line(line_points[0], line_points[1]));
+    //重複判定
+    check_line_result = check_line(line_datas,line(line_points[0], line_points[1]) );
+      if(check_line_result){
+        std::cout << "!!!!重複!!!!" << std::endl;
+      }else{
+        line_datas.push_back(line(line_points[0], line_points[1]));
+      }
     return ;
   }
   
@@ -253,7 +263,13 @@ void make_line(std::vector<line>&line_datas ,plane _plane, triangle _triangle){
     line_points.push_back(point(ab(0)+_triangle.v1.x,ab(1)+_triangle.v1.y,ab(2)+_triangle.v1.z));
     //2頂点による線が決まればこれで終了
     if( line_points.size() == 2){
-      line_datas.push_back(line(line_points[0], line_points[1]));
+      //チェック
+      check_line_result = check_line(line_datas,line(line_points[0], line_points[1]) );
+      if(check_line_result){
+        std::cout << "!!!!重複!!!!" << std::endl;
+      }else{
+        line_datas.push_back(line(line_points[0], line_points[1]));
+      }
       return ;
     }
   }
@@ -268,8 +284,14 @@ void make_line(std::vector<line>&line_datas ,plane _plane, triangle _triangle){
     line_points.push_back(point(bc(0)+_triangle.v2.x,bc(1)+_triangle.v2.y,bc(2)+_triangle.v2.z));
     //2頂点による線が決まればこれで終了
     if( line_points.size() == 2){
-      line_datas.push_back(line(line_points[0], line_points[1]));
-    return ;
+      //重複判定
+      check_line_result = check_line(line_datas,line(line_points[0], line_points[1]) );
+      if(check_line_result){
+        std::cout << "!!!!重複!!!!" << std::endl;
+      }else{
+        line_datas.push_back(line(line_points[0], line_points[1]));
+      }
+      return ;
     }
 
   }
@@ -284,8 +306,14 @@ void make_line(std::vector<line>&line_datas ,plane _plane, triangle _triangle){
     line_points.push_back(point(ac(0)+_triangle.v1.x,ac(1)+_triangle.v1.y,ac(2)+_triangle.v1.z));
     //2頂点による線が決まればこれで終了
     if( line_points.size() == 2){
-      line_datas.push_back(line(line_points[0], line_points[1]));
-    return ;
+      //重複判定
+      check_line_result = check_line(line_datas,line(line_points[0], line_points[1]) );
+      if(check_line_result){
+        std::cout << "!!!!重複!!!!" << std::endl;
+      }else{
+        line_datas.push_back(line(line_points[0], line_points[1]));
+      }
+      return ;
     }
   }
 
@@ -295,6 +323,41 @@ void make_line(std::vector<line>&line_datas ,plane _plane, triangle _triangle){
 
   
 }
+
+bool check_line(std::vector<line>& line_datas, line line_data)
+{
+  //重複を検索
+  point line_p1 = line_data.p1;
+  point line_p2 = line_data.p2;
+
+  for(int i =0 ; i < line_datas.size(); i++)
+  {
+    //p1とlineのp1が同じ
+    if(line_datas[i].p1.x == line_p1.x && line_datas[i].p1.y == line_p1.y && line_datas[i].p1.z == line_p1.z)
+    {
+      //p2とline_p2が同じ
+      if(line_datas[i].p2.x == line_p2.x && line_datas[i].p2.y == line_p2.y && line_datas[i].p2.z == line_p2.z)
+      {
+        //重複判定
+        return true;
+      }
+    //p2とlineのp1が同じ
+    }else if(line_datas[i].p2.x == line_p1.x && line_datas[i].p2.y == line_p1.y && line_datas[i].p2.z == line_p1.z)
+    {
+      //p1とline_p2が同じ
+      if(line_datas[i].p1.x == line_p2.x && line_datas[i].p1.y == line_p2.y && line_datas[i].p1.z == line_p2.z)
+      {
+        //重複判定
+        return true;
+      }
+    }
+  } 
+  //非重複
+  return false;
+
+
+}
+
 
 void make_polygon(std::vector<line>&line_datas, std::vector<point>&polygon)
 {
@@ -450,19 +513,18 @@ void make_polygon2(std::vector<line>&line_datas, std::vector<point>&polygon)
         break;
       }
       //std::cout << "most small" << most_small << std::endl;
-
-      
-
       
     }
 
       
-    if(most_small <= 0.5)
+    if(most_small <= 0.001)
     {
       std::cout << "goal small" << most_small << std::endl;
       if(!reverse) 
       {
         search_p = line_datas[most_small_idx].p2;
+        //std::cout << "p1:" << line_datas[most_small_idx].p1.x <<  std::endl;
+        //std::cout << "p2:" << line_datas[most_small_idx].p2 << std::endl;
         polygon.push_back(line_datas[most_small_idx].p1);
         polygon.push_back(line_datas[most_small_idx].p2);
         line_datas.erase(line_datas.begin() + most_small_idx);
@@ -505,12 +567,13 @@ void drawLine(std::vector<std::vector<point>> polygons)
   //for(int i =0; i < 3; i++){
     //一つのポリゴンを取得 polygons[i]
     glColor3f(1.0, 0.5*i, 0.1*i/2);
-    //glLineWidth(5);
-    //glBegin(GL_LINE_LOOP);
+    glLineWidth(5);
+    glBegin(GL_LINE_LOOP);
     //glBegin(GL_LINE_STRIP);
 
-    glPointSize(5);
-    glBegin(GL_POINTS);
+    //glPointSize(5);
+    //glBegin(GL_POINTS);
+    
     for(int j =0; j < polygons[i].size(); j++){
       //1つのポイントを取得 polygons[i][j]
       glVertex3d(polygons[i][j].x, polygons[i][j].y, polygons[i][j].z );
