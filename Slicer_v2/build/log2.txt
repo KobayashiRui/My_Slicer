@@ -1,0 +1,3110 @@
+STL HEADER = solid Shape0
+# triangles = 225706
+End
+Count: 35
+!!!!重複!!!!
+!!!!重複!!!!
+END line
+Make Polygon
+goal small0
+dff : 85701.5
+goal small0
+dff : 96675.1
+goal small0
+dff : 108796
+goal small0
+dff : 262324
+goal small0
+dff : 295231
+goal small0
+dff : 327228
+goal small0
+dff : 359320
+goal small0
+dff : 544724
+goal small0
+dff : 576766
+goal small0
+dff : 763478
+goal small0.125
+dff : 795600
+goal small0
+dff : 982032
+goal small0
+dff : 1.01413e+06
+goal small0
+dff : 1.20029e+06
+goal small0
+dff : 1.23247e+06
+goal small0
+dff : 1.41925e+06
+goal small0
+dff : 1.45133e+06
+goal small0
+dff : 1.63786e+06
+goal small0
+dff : 1.67003e+06
+goal small0
+dff : 1.85676e+06
+goal small0
+dff : 1.88891e+06
+goal small0
+dff : 2.07586e+06
+goal small0
+dff : 2.10802e+06
+goal small0
+dff : 2.29474e+06
+goal small0
+dff : 2.3269e+06
+goal small0
+dff : 2.51432e+06
+goal small0
+dff : 2.54657e+06
+goal small0
+dff : 2.73332e+06
+goal small0
+dff : 2.76549e+06
+goal small0
+dff : 2.95297e+06
+goal small0
+dff : 2.98511e+06
+goal small0
+dff : 3.17169e+06
+goal small0
+dff : 3.20388e+06
+goal small0
+dff : 3.39146e+06
+goal small0
+dff : 3.4237e+06
+goal small0
+dff : 3.61041e+06
+goal small0
+dff : 3.64262e+06
+goal small0
+dff : 3.82964e+06
+goal small0
+dff : 3.86178e+06
+goal small0
+dff : 4.04913e+06
+goal small0
+dff : 4.08125e+06
+goal small0
+dff : 4.26776e+06
+goal small0
+dff : 4.29994e+06
+goal small0
+dff : 4.4875e+06
+goal small0.5
+dff : 4.51966e+06
+goal small0
+dff : 4.70639e+06
+goal small0
+dff : 4.73862e+06
+goal small0
+dff : 4.92574e+06
+goal small0
+dff : 4.95791e+06
+goal small0
+dff : 5.14473e+06
+goal small0
+dff : 5.17688e+06
+goal small0
+dff : 5.36361e+06
+goal small0
+dff : 5.39574e+06
+goal small0
+dff : 5.58289e+06
+goal small0
+dff : 5.61498e+06
+goal small0
+dff : 5.80205e+06
+goal small0
+dff : 5.83422e+06
+goal small0
+dff : 6.02105e+06
+goal small0
+dff : 6.05321e+06
+goal small0
+dff : 6.2393e+06
+goal small0
+dff : 6.27133e+06
+goal small0
+dff : 6.45857e+06
+goal small0
+dff : 6.49069e+06
+goal small0
+dff : 6.67721e+06
+goal small0
+dff : 6.7092e+06
+goal small0
+dff : 6.89555e+06
+goal small0
+dff : 6.92763e+06
+goal small0
+dff : 7.11396e+06
+goal small0
+dff : 7.14592e+06
+goal small0
+dff : 7.33158e+06
+goal small0
+dff : 7.36353e+06
+goal small0
+dff : 7.54972e+06
+goal small0
+dff : 7.58177e+06
+goal small0
+dff : 7.76797e+06
+goal small0
+dff : 7.79991e+06
+goal small0
+dff : 7.986e+06
+goal small0
+dff : 8.01804e+06
+goal small0
+dff : 8.2035e+06
+goal small0
+dff : 8.23543e+06
+goal small0
+dff : 8.42094e+06
+goal small0
+dff : 8.45276e+06
+goal small0
+dff : 8.63821e+06
+goal small0
+dff : 8.67004e+06
+goal small0
+dff : 8.85554e+06
+goal small0
+dff : 8.88727e+06
+goal small0
+dff : 9.0722e+06
+goal small0
+dff : 9.10403e+06
+goal small0
+dff : 9.28895e+06
+goal small0
+dff : 9.3208e+06
+goal small0
+dff : 9.5058e+06
+goal small0
+dff : 9.53745e+06
+goal small0
+dff : 9.72134e+06
+goal small0
+dff : 9.75322e+06
+goal small0
+dff : 9.93835e+06
+goal small0
+dff : 9.96991e+06
+goal small0
+dff : 1.0154e+07
+goal small0
+dff : 1.01856e+07
+goal small0
+dff : 1.03692e+07
+goal small0
+dff : 1.04007e+07
+goal small0
+dff : 1.05849e+07
+goal small0
+dff : 1.06165e+07
+goal small0
+dff : 1.08003e+07
+goal small0
+dff : 1.08318e+07
+goal small0
+dff : 1.10151e+07
+goal small0
+dff : 1.10466e+07
+goal small0
+dff : 1.123e+07
+goal small0
+dff : 1.1413e+07
+goal small0
+dff : 1.14445e+07
+goal small0
+dff : 1.15081e+07
+goal small0
+dff : 1.16585e+07
+goal small0
+dff : 1.17221e+07
+goal small0
+dff : 1.18722e+07
+goal small0
+dff : 1.19357e+07
+goal small0
+dff : 1.20858e+07
+goal small0
+dff : 1.21492e+07
+goal small0
+dff : 1.22991e+07
+goal small0
+dff : 1.23623e+07
+goal small0
+dff : 1.25118e+07
+goal small0
+dff : 1.25749e+07
+goal small0
+dff : 1.27241e+07
+goal small0
+dff : 1.27871e+07
+goal small0
+dff : 1.2936e+07
+goal small0
+dff : 1.29991e+07
+goal small0
+dff : 1.31482e+07
+goal small0
+dff : 1.32111e+07
+goal small0
+dff : 1.336e+07
+goal small0
+dff : 1.34226e+07
+goal small0
+dff : 1.35711e+07
+goal small0
+dff : 1.36338e+07
+goal small0
+dff : 1.37816e+07
+goal small0
+dff : 1.38442e+07
+goal small0
+dff : 1.39923e+07
+goal small0
+dff : 1.40548e+07
+goal small0
+dff : 1.42021e+07
+goal small0
+dff : 1.42645e+07
+goal small0
+dff : 1.4412e+07
+goal small0
+dff : 1.44741e+07
+goal small0
+dff : 1.46209e+07
+goal small0
+dff : 1.46831e+07
+goal small0
+dff : 1.48297e+07
+goal small0
+dff : 1.48916e+07
+goal small0
+dff : 1.5038e+07
+goal small0
+dff : 1.50998e+07
+goal small0
+dff : 1.5246e+07
+goal small0
+dff : 1.53075e+07
+goal small0
+dff : 1.54535e+07
+goal small0
+dff : 1.55154e+07
+goal small0
+dff : 1.56607e+07
+goal small0
+dff : 1.57223e+07
+goal small0
+dff : 1.58674e+07
+goal small0
+dff : 1.59285e+07
+goal small0
+dff : 1.60739e+07
+goal small0
+dff : 1.61351e+07
+goal small0
+dff : 1.62795e+07
+goal small0
+dff : 1.63406e+07
+goal small0
+dff : 1.64853e+07
+goal small0
+dff : 1.65463e+07
+goal small0
+dff : 1.66903e+07
+goal small0
+dff : 1.67511e+07
+goal small0
+dff : 1.68945e+07
+goal small0
+dff : 1.69551e+07
+goal small0
+dff : 1.70983e+07
+goal small0
+dff : 1.7159e+07
+goal small0
+dff : 1.73021e+07
+goal small0
+dff : 1.73623e+07
+goal small0
+dff : 1.75048e+07
+goal small0
+dff : 1.75652e+07
+goal small0
+dff : 1.77076e+07
+goal small0
+dff : 1.77677e+07
+goal small0
+dff : 1.791e+07
+goal small0
+dff : 1.797e+07
+goal small0
+dff : 1.81118e+07
+goal small0
+dff : 1.81716e+07
+goal small0
+dff : 1.83122e+07
+goal small0
+dff : 1.83718e+07
+goal small0
+dff : 1.85133e+07
+goal small0
+dff : 1.85729e+07
+goal small0
+dff : 1.87128e+07
+goal small0
+dff : 1.87721e+07
+goal small0
+dff : 1.89125e+07
+goal small0
+dff : 1.89717e+07
+goal small0
+dff : 1.91111e+07
+goal small0
+dff : 1.91699e+07
+goal small0
+dff : 1.93097e+07
+goal small0
+dff : 1.93687e+07
+goal small0
+dff : 1.9508e+07
+goal small0
+dff : 1.95666e+07
+goal small0
+dff : 1.97049e+07
+goal small0
+dff : 1.97636e+07
+goal small0
+dff : 1.99018e+07
+goal small0
+dff : 1.99601e+07
+goal small0
+dff : 2.00977e+07
+goal small0
+dff : 2.01558e+07
+goal small0
+dff : 2.02935e+07
+goal small0
+dff : 2.03513e+07
+goal small0
+dff : 2.04879e+07
+goal small0
+dff : 2.05458e+07
+goal small0
+dff : 2.06824e+07
+goal small0
+dff : 2.074e+07
+goal small0
+dff : 2.08762e+07
+goal small0
+dff : 2.09338e+07
+goal small0
+dff : 2.10695e+07
+goal small0
+dff : 2.11267e+07
+goal small0
+dff : 2.12619e+07
+goal small0
+dff : 2.1319e+07
+goal small0
+dff : 2.14541e+07
+goal small0
+dff : 2.15109e+07
+goal small0
+dff : 2.16451e+07
+goal small0
+dff : 2.17017e+07
+goal small0
+dff : 2.18358e+07
+goal small0
+dff : 2.18926e+07
+goal small0
+dff : 2.20259e+07
+goal small0
+dff : 2.20822e+07
+goal small0
+dff : 2.22154e+07
+goal small0
+dff : 2.22715e+07
+goal small0
+dff : 2.24038e+07
+goal small0
+dff : 2.24598e+07
+goal small0
+dff : 2.25921e+07
+goal small0
+dff : 2.26479e+07
+goal small0
+dff : 2.27792e+07
+goal small0
+dff : 2.2835e+07
+goal small0
+dff : 2.29664e+07
+goal small0
+dff : 2.30219e+07
+goal small0
+dff : 2.31527e+07
+goal small0
+dff : 2.32079e+07
+goal small0
+dff : 2.33379e+07
+goal small0
+dff : 2.33929e+07
+goal small0
+dff : 2.35231e+07
+goal small0
+dff : 2.3578e+07
+goal small0
+dff : 2.37069e+07
+goal small0
+dff : 2.37618e+07
+goal small0
+dff : 2.3891e+07
+goal small0
+dff : 2.39453e+07
+goal small0
+dff : 2.40734e+07
+goal small0
+dff : 2.41278e+07
+goal small0
+dff : 2.42556e+07
+goal small0
+dff : 2.43096e+07
+goal small0
+dff : 2.44371e+07
+goal small0
+dff : 2.44908e+07
+goal small0
+dff : 2.46183e+07
+goal small0
+dff : 2.4672e+07
+goal small0
+dff : 2.47981e+07
+goal small0
+dff : 2.48517e+07
+goal small0
+dff : 2.49778e+07
+goal small0
+dff : 2.5031e+07
+goal small0
+dff : 2.51562e+07
+goal small0
+dff : 2.52091e+07
+goal small0
+dff : 2.53339e+07
+goal small0
+dff : 2.53868e+07
+goal small0
+dff : 2.55116e+07
+goal small0
+dff : 2.55642e+07
+goal small0
+dff : 2.56878e+07
+goal small0
+dff : 2.574e+07
+goal small0
+dff : 2.58636e+07
+goal small0
+dff : 2.59157e+07
+goal small0
+dff : 2.60383e+07
+goal small0
+dff : 2.61422e+07
+goal small0
+dff : 2.63873e+07
+goal small0
+dff : 2.64912e+07
+goal small0
+dff : 2.6736e+07
+goal small0
+dff : 2.72272e+07
+goal small0
+dff : 2.7437e+07
+goal small0
+dff : 2.84255e+07
+goal small0
+dff : 2.88501e+07
+goal small0
+dff : 3.08476e+07
+goal small0
+dff : 3.17099e+07
+goal small0
+dff : 3.37312e+07
+goal small0
+dff : 3.4602e+07
+goal small0
+dff : 3.6641e+07
+goal small0
+dff : 3.75183e+07
+goal small0
+dff : 3.83944e+07
+goal small0
+dff : 4.04579e+07
+goal small0
+dff : 4.13424e+07
+goal small0
+dff : 4.34219e+07
+goal small0
+dff : 4.43151e+07
+goal small0
+dff : 4.64134e+07
+goal small0
+dff : 4.75635e+07
+goal small0
+dff : 4.91482e+07
+goal small0
+dff : 4.91899e+07
+goal small0
+dff : 4.92678e+07
+goal small0
+dff : 4.93081e+07
+goal small0
+dff : 4.93833e+07
+goal small0
+dff : 4.94094e+07
+goal small0
+dff : 4.94956e+07
+goal small0
+dff : 4.95094e+07
+goal small0
+dff : 4.96025e+07
+goal small0
+dff : 4.96066e+07
+goal small0
+dff : 4.96539e+07
+goal small0
+dff : 4.97011e+07
+goal small0
+dff : 4.97053e+07
+goal small0
+dff : 4.97927e+07
+goal small0
+dff : 4.98021e+07
+goal small0
+dff : 4.98806e+07
+goal small0
+dff : 4.98935e+07
+goal small0
+dff : 4.99653e+07
+goal small0
+dff : 4.998e+07
+goal small0
+dff : 5.00449e+07
+goal small0
+dff : 5.00591e+07
+goal small0
+dff : 5.01208e+07
+goal small0
+dff : 5.01331e+07
+goal small0
+dff : 5.019e+07
+goal small0
+dff : 5.01989e+07
+goal small0
+dff : 5.02538e+07
+goal small0
+dff : 5.02586e+07
+goal small0
+dff : 5.03114e+07
+goal small0
+dff : 5.03117e+07
+goal small0
+dff : 5.03143e+07
+goal small0
+dff : 5.03568e+07
+goal small0
+dff : 5.03605e+07
+goal small0
+dff : 5.03945e+07
+goal small0
+dff : 5.04012e+07
+goal small0
+dff : 5.04249e+07
+goal small0
+dff : 5.04339e+07
+goal small0
+dff : 5.0448e+07
+goal small0
+dff : 5.0456e+07
+goal small0
+dff : 5.04627e+07
+goal small0
+dff : 5.04687e+07
+goal small0
+dff : 5.04703e+07
+goal small0
+dff : 5.04695e+07
+goal small0
+dff : 5.04695e+07
+goal small0
+dff : 5.04694e+07
+goal small0
+dff : 5.04617e+07
+goal small0
+dff : 5.04501e+07
+goal small0
+dff : 5.04463e+07
+goal small0
+dff : 5.04121e+07
+goal small0
+dff : 5.02865e+07
+goal small0
+dff : 5.03009e+07
+goal small0
+dff : 5.0392e+07
+goal small0
+dff : 5.03502e+07
+goal small0
+dff : 5.03455e+07
+goal small0
+dff : 5.03084e+07
+goal small0
+dff : 5.02603e+07
+goal small0
+dff : 5.02182e+07
+goal small0
+dff : 5.02108e+07
+goal small0
+dff : 5.02017e+07
+goal small0
+dff : 5.01805e+07
+goal small0
+dff : 5.0178e+07
+goal small0
+dff : 5.01945e+07
+goal small0
+dff : 5.02298e+07
+goal small0
+dff : 5.02355e+07
+goal small0
+dff : 5.02848e+07
+goal small0
+dff : 5.0275e+07
+goal small0
+dff : 5.02328e+07
+goal small0
+dff : 5.01973e+07
+goal small0
+dff : 5.01439e+07
+goal small0
+dff : 5.01279e+07
+goal small0
+dff : 5.01076e+07
+goal small0
+dff : 5.01073e+07
+goal small0
+dff : 5.01085e+07
+goal small0
+dff : 5.01101e+07
+goal small0
+dff : 5.01399e+07
+goal small0
+dff : 5.02119e+07
+goal small0
+dff : 5.01909e+07
+goal small0
+dff : 5.01855e+07
+goal small0
+dff : 5.01851e+07
+goal small0
+dff : 5.01813e+07
+goal small0
+dff : 5.01624e+07
+goal small0
+dff : 5.01548e+07
+goal small0
+dff : 5.01254e+07
+goal small0
+dff : 5.00908e+07
+goal small0
+dff : 5.00853e+07
+goal small0
+dff : 5.00771e+07
+goal small0
+dff : 5.00757e+07
+goal small0
+dff : 5.00757e+07
+goal small0
+dff : 5.00707e+07
+goal small0
+dff : 5.00696e+07
+goal small0
+dff : 5.00684e+07
+goal small0
+dff : 5.00666e+07
+goal small0
+dff : 5.00662e+07
+goal small0
+dff : 5.00643e+07
+goal small0
+dff : 5.00636e+07
+goal small0
+dff : 5.00625e+07
+goal small0
+dff : 5.00621e+07
+goal small0
+dff : 5.00601e+07
+goal small0
+dff : 5.00588e+07
+goal small0.5
+dff : 5.00579e+07
+goal small0
+dff : 5.00551e+07
+goal small0
+dff : 5.00549e+07
+goal small0
+dff : 5.00576e+07
+goal small0
+dff : 5.00582e+07
+goal small0
+dff : 5.00742e+07
+goal small0
+dff : 5.00763e+07
+goal small0
+dff : 5.00842e+07
+goal small0
+dff : 5.0087e+07
+goal small0
+dff : 5.00923e+07
+goal small0
+dff : 5.00975e+07
+goal small0
+dff : 5.01051e+07
+goal small0
+dff : 5.01162e+07
+goal small0
+dff : 5.01229e+07
+goal small0
+dff : 5.0135e+07
+goal small0
+dff : 5.0138e+07
+goal small0
+dff : 5.01442e+07
+goal small0
+dff : 5.01449e+07
+goal small0
+dff : 5.01471e+07
+goal small0
+dff : 5.01471e+07
+goal small0
+dff : 5.01517e+07
+goal small0
+dff : 5.01501e+07
+goal small0
+dff : 5.01491e+07
+goal small0
+dff : 5.01467e+07
+goal small0
+dff : 5.01436e+07
+goal small0
+dff : 5.01434e+07
+goal small0
+dff : 5.01216e+07
+goal small0
+dff : 5.00509e+07
+goal small0
+dff : 5.00322e+07
+goal small0
+dff : 5.00149e+07
+goal small0
+dff : 5.001e+07
+goal small0
+dff : 5.00004e+07
+goal small0
+dff : 5.00523e+07
+goal small0
+dff : 5.01066e+07
+goal small0
+dff : 5.00974e+07
+goal small0
+dff : 5.00966e+07
+goal small0
+dff : 5.00956e+07
+goal small0
+dff : 5.00956e+07
+goal small0
+dff : 5.00949e+07
+goal small0
+dff : 5.00943e+07
+goal small0.25
+dff : 5.00926e+07
+goal small0
+dff : 5.00922e+07
+goal small0
+dff : 5.00912e+07
+goal small0
+dff : 5.00908e+07
+goal small0
+dff : 5.00902e+07
+goal small0
+dff : 5.00889e+07
+goal small0
+dff : 5.0088e+07
+goal small0
+dff : 5.00872e+07
+goal small0
+dff : 5.0086e+07
+goal small0.25
+dff : 5.0086e+07
+goal small0
+dff : 5.00847e+07
+goal small0
+dff : 5.00842e+07
+goal small0
+dff : 5.00804e+07
+goal small0
+dff : 5.00675e+07
+goal small0
+dff : 5.00669e+07
+goal small0
+dff : 5.00668e+07
+goal small0
+dff : 5.00668e+07
+goal small0
+dff : 5.00667e+07
+goal small0
+dff : 5.00667e+07
+goal small0
+dff : 5.00666e+07
+goal small0
+dff : 5.00659e+07
+goal small0
+dff : 5.00654e+07
+goal small0
+dff : 5.00646e+07
+goal small0
+dff : 5.00646e+07
+goal small0
+dff : 5.00646e+07
+goal small0
+dff : 5.00633e+07
+goal small0
+dff : 5.00551e+07
+goal small0
+dff : 5.00542e+07
+goal small0
+dff : 5.00518e+07
+goal small0
+dff : 5.00514e+07
+goal small0
+dff : 5.00461e+07
+goal small0
+dff : 5.00457e+07
+goal small0
+dff : 5.00348e+07
+goal small0
+dff : 5.00311e+07
+goal small0
+dff : 5.00277e+07
+goal small0
+dff : 5.00249e+07
+goal small0
+dff : 5.00177e+07
+goal small0
+dff : 5.00142e+07
+goal small0
+dff : 5.00034e+07
+goal small0
+dff : 4.99953e+07
+goal small0
+dff : 4.9992e+07
+goal small0
+dff : 4.99891e+07
+goal small0
+dff : 4.99848e+07
+goal small0
+dff : 4.9972e+07
+goal small0
+dff : 4.99706e+07
+goal small0
+dff : 4.99635e+07
+goal small0
+dff : 4.99617e+07
+goal small0
+dff : 4.99523e+07
+goal small0
+dff : 4.99522e+07
+goal small0
+dff : 4.99522e+07
+goal small0
+dff : 4.99522e+07
+goal small0
+dff : 4.99522e+07
+goal small0
+dff : 4.99507e+07
+goal small0
+dff : 4.99506e+07
+goal small0
+dff : 4.99504e+07
+goal small0
+dff : 4.99503e+07
+goal small0
+dff : 4.99493e+07
+goal small0
+dff : 4.99488e+07
+goal small0
+dff : 4.99495e+07
+goal small0
+dff : 4.99494e+07
+goal small0
+dff : 4.99479e+07
+goal small0
+dff : 4.99475e+07
+goal small0
+dff : 4.99467e+07
+goal small0
+dff : 4.99467e+07
+goal small0
+dff : 4.99458e+07
+goal small0
+dff : 4.99442e+07
+goal small0
+dff : 4.99429e+07
+goal small0.25
+dff : 4.99424e+07
+goal small0
+dff : 4.99424e+07
+goal small0
+dff : 4.99423e+07
+goal small0
+dff : 4.99406e+07
+goal small0
+dff : 4.99763e+07
+goal small0
+dff : 4.99817e+07
+goal small0
+dff : 4.99884e+07
+goal small0
+dff : 5.00163e+07
+goal small0
+dff : 5.00279e+07
+goal small0
+dff : 5.00476e+07
+goal small2
+dff : 5.0045e+07
+goal small0
+dff : 5.00445e+07
+goal small0
+dff : 5.00423e+07
+goal small0
+dff : 5.00411e+07
+goal small0
+dff : 5.00412e+07
+goal small0
+dff : 5.00397e+07
+goal small0
+dff : 5.0039e+07
+goal small0
+dff : 5.0039e+07
+goal small0
+dff : 5.00389e+07
+goal small0
+dff : 5.00378e+07
+goal small0
+dff : 5.00366e+07
+goal small0
+dff : 5.00338e+07
+goal small0
+dff : 5.00323e+07
+goal small0
+dff : 5.00302e+07
+goal small0
+dff : 5.00283e+07
+goal small0
+dff : 5.00127e+07
+goal small0
+dff : 5.00039e+07
+goal small0
+dff : 4.9981e+07
+goal small0
+dff : 4.99613e+07
+goal small0
+dff : 4.99467e+07
+goal small0
+dff : 4.99424e+07
+goal small0
+dff : 4.99229e+07
+goal small0
+dff : 4.99223e+07
+goal small0
+dff : 4.99211e+07
+goal small0
+dff : 4.99208e+07
+goal small0
+dff : 4.99196e+07
+goal small0
+dff : 4.99192e+07
+goal small0
+dff : 4.99179e+07
+goal small0
+dff : 4.99175e+07
+goal small0
+dff : 4.99173e+07
+goal small0
+dff : 4.99174e+07
+goal small0
+dff : 4.99168e+07
+goal small0
+dff : 4.99166e+07
+goal small0
+dff : 4.99159e+07
+goal small0
+dff : 4.99159e+07
+goal small0
+dff : 4.99155e+07
+goal small0
+dff : 4.99152e+07
+goal small0
+dff : 4.99151e+07
+goal small0
+dff : 4.99147e+07
+goal small0
+dff : 4.99144e+07
+goal small0
+dff : 4.99144e+07
+goal small0
+dff : 4.99145e+07
+goal small0
+dff : 4.99144e+07
+goal small0
+dff : 4.99144e+07
+goal small0
+dff : 4.99144e+07
+goal small0
+dff : 4.99136e+07
+goal small0
+dff : 4.99159e+07
+goal small0
+dff : 4.99168e+07
+goal small0
+dff : 4.99405e+07
+goal small0
+dff : 4.99447e+07
+goal small0
+dff : 4.99543e+07
+goal small0
+dff : 4.99567e+07
+goal small0
+dff : 4.99614e+07
+goal small0
+dff : 4.99685e+07
+goal small0
+dff : 4.99749e+07
+goal small0
+dff : 4.99833e+07
+goal small0
+dff : 4.9987e+07
+goal small0
+dff : 4.99912e+07
+goal small0
+dff : 4.99924e+07
+goal small0
+dff : 5.00068e+07
+goal small0
+dff : 5.00084e+07
+goal small0
+dff : 5.00114e+07
+goal small0
+dff : 5.00116e+07
+goal small0
+dff : 5.00167e+07
+goal small0
+dff : 5.00165e+07
+goal small0
+dff : 5.00159e+07
+goal small0
+dff : 5.00156e+07
+goal small0
+dff : 5.00155e+07
+goal small0
+dff : 5.00155e+07
+goal small0
+dff : 5.00154e+07
+goal small0
+dff : 5.00154e+07
+goal small0
+dff : 5.00154e+07
+goal small0
+dff : 5.00154e+07
+goal small0
+dff : 5.00152e+07
+goal small0
+dff : 5.00147e+07
+goal small0
+dff : 5.00141e+07
+goal small0
+dff : 5.00129e+07
+goal small0
+dff : 5.00057e+07
+goal small0
+dff : 4.99349e+07
+goal small0
+dff : 4.98989e+07
+goal small0
+dff : 4.98966e+07
+goal small0
+dff : 4.9895e+07
+goal small0
+dff : 4.99428e+07
+goal small0
+dff : 5.00017e+07
+goal small0
+dff : 4.99981e+07
+goal small0
+dff : 4.99976e+07
+goal small0
+dff : 4.99974e+07
+goal small0
+dff : 4.9997e+07
+goal small0
+dff : 4.99973e+07
+goal small0
+dff : 4.99964e+07
+goal small0
+dff : 4.99962e+07
+goal small0
+dff : 4.99957e+07
+goal small0
+dff : 4.99955e+07
+goal small0
+dff : 4.99868e+07
+goal small0
+dff : 4.99843e+07
+goal small0
+dff : 4.99803e+07
+goal small0
+dff : 4.99544e+07
+goal small0
+dff : 4.99499e+07
+goal small0
+dff : 4.99452e+07
+goal small0
+dff : 4.98888e+07
+goal small0
+dff : 4.98887e+07
+goal small0
+dff : 4.98883e+07
+goal small0
+dff : 4.98881e+07
+goal small0
+dff : 4.98882e+07
+goal small0.125
+dff : 4.98881e+07
+goal small0
+dff : 4.98882e+07
+goal small0
+dff : 4.98882e+07
+goal small0
+dff : 4.9888e+07
+goal small0
+dff : 4.98879e+07
+goal small0
+dff : 4.98879e+07
+goal small0
+dff : 4.98878e+07
+goal small0
+dff : 4.98878e+07
+goal small0
+dff : 4.98876e+07
+goal small0
+dff : 4.98876e+07
+goal small0
+dff : 4.98876e+07
+goal small0
+dff : 4.98876e+07
+goal small0
+dff : 4.98871e+07
+goal small0
+dff : 4.98871e+07
+goal small0
+dff : 4.98871e+07
+goal small0
+dff : 4.9887e+07
+goal small0
+dff : 4.98983e+07
+goal small0
+dff : 4.98995e+07
+goal small0
+dff : 4.99098e+07
+goal small0
+dff : 4.99132e+07
+goal small0
+dff : 4.99254e+07
+goal small0
+dff : 4.99367e+07
+goal small0
+dff : 4.99486e+07
+goal small0
+dff : 4.99522e+07
+goal small0
+dff : 4.99544e+07
+goal small0
+dff : 4.99647e+07
+goal small0
+dff : 4.99682e+07
+goal small0
+dff : 4.99751e+07
+goal small0
+dff : 4.99767e+07
+goal small0
+dff : 4.99842e+07
+goal small0
+dff : 4.99851e+07
+goal small0
+dff : 4.99907e+07
+goal small0
+dff : 4.99908e+07
+goal small0
+dff : 4.99937e+07
+goal small0
+dff : 4.99934e+07
+goal small0
+dff : 4.99931e+07
+goal small0
+dff : 4.99931e+07
+goal small0
+dff : 4.9993e+07
+goal small0
+dff : 4.99929e+07
+goal small0
+dff : 4.99928e+07
+goal small0
+dff : 4.99929e+07
+goal small0
+dff : 4.99928e+07
+goal small0
+dff : 4.99929e+07
+goal small0
+dff : 4.99929e+07
+goal small0
+dff : 4.99929e+07
+goal small0
+dff : 4.99928e+07
+goal small0
+dff : 4.99928e+07
+goal small0
+dff : 4.99928e+07
+goal small0.0625
+dff : 4.99928e+07
+goal small0.0625
+dff : 4.99928e+07
+goal small0
+dff : 4.99928e+07
+goal small0
+dff : 4.99928e+07
+goal small0.0625
+dff : 4.99928e+07
+goal small0
+dff : 4.99928e+07
+goal small0
+dff : 4.99928e+07
+goal small0.0625
+dff : 4.99928e+07
+goal small0
+dff : 4.99932e+07
+goal small0
+dff : 4.9993e+07
+goal small0
+dff : 4.99885e+07
+goal small0
+dff : 4.99882e+07
+goal small0
+dff : 4.99802e+07
+goal small0
+dff : 4.99789e+07
+goal small0
+dff : 4.9965e+07
+goal small0
+dff : 4.99607e+07
+goal small0
+dff : 4.99585e+07
+goal small0
+dff : 4.99566e+07
+goal small0
+dff : 4.9946e+07
+goal small0
+dff : 4.99389e+07
+goal small0
+dff : 4.99221e+07
+goal small0
+dff : 4.99139e+07
+goal small0
+dff : 4.99121e+07
+goal small0.0625
+dff : 4.99121e+07
+goal small0
+dff : 4.98874e+07
+goal small0
+dff : 4.98875e+07
+goal small0
+dff : 4.98875e+07
+goal small0
+dff : 4.98869e+07
+goal small0
+dff : 4.98868e+07
+goal small0
+dff : 4.98868e+07
+goal small0
+dff : 4.98868e+07
+goal small0
+dff : 4.98869e+07
+goal small0
+dff : 4.98869e+07
+goal small0
+dff : 4.9887e+07
+goal small0
+dff : 4.98868e+07
+goal small0
+dff : 4.98868e+07
+goal small0
+dff : 4.98876e+07
+goal small0
+dff : 4.98875e+07
+goal small0
+dff : 4.98869e+07
+goal small0
+dff : 4.98871e+07
+goal small0
+dff : 4.9887e+07
+goal small0
+dff : 4.98873e+07
+goal small0
+dff : 4.98878e+07
+goal small0
+dff : 4.98875e+07
+goal small0
+dff : 4.98872e+07
+goal small0
+dff : 4.98874e+07
+goal small0
+dff : 4.98877e+07
+goal small0
+dff : 4.98879e+07
+goal small0.03125
+dff : 4.98879e+07
+goal small0
+dff : 4.98879e+07
+goal small0.03125
+dff : 4.98882e+07
+goal small0
+dff : 4.9888e+07
+goal small0
+dff : 4.99183e+07
+goal small0
+dff : 4.99283e+07
+goal small0
+dff : 4.99359e+07
+goal small0
+dff : 4.99744e+07
+goal small0
+dff : 4.99834e+07
+goal small0
+dff : 4.99947e+07
+goal small0
+dff : 4.99948e+07
+goal small0.03125
+dff : 4.99953e+07
+goal small0
+dff : 4.99951e+07
+goal small0
+dff : 4.99954e+07
+goal small0.015625
+dff : 4.99956e+07
+goal small0
+dff : 4.99961e+07
+goal small0
+dff : 4.99962e+07
+goal small0
+dff : 4.99963e+07
+goal small0
+dff : 4.99974e+07
+goal small0
+dff : 4.9999e+07
+goal small0
+dff : 4.99993e+07
+goal small0
+dff : 4.99999e+07
+goal small0
+dff : 5.00001e+07
+goal small0.015625
+dff : 5.0001e+07
+goal small0
+dff : 5.00012e+07
+goal small0
+dff : 4.99678e+07
+goal small0
+dff : 4.99459e+07
+goal small0
+dff : 4.99423e+07
+goal small0
+dff : 4.9937e+07
+goal small0
+dff : 4.99207e+07
+goal small0
+dff : 4.98953e+07
+goal small0
+dff : 4.98958e+07
+goal small0
+dff : 4.98958e+07
+goal small0
+dff : 4.9896e+07
+goal small0
+dff : 4.98965e+07
+goal small0
+dff : 4.98967e+07
+goal small0
+dff : 4.98978e+07
+goal small0
+dff : 4.98981e+07
+goal small0
+dff : 4.98992e+07
+goal small0
+dff : 4.98992e+07
+goal small0.03125
+dff : 4.99028e+07
+goal small0
+dff : 4.99178e+07
+goal small0
+dff : 4.99189e+07
+goal small0
+dff : 4.99208e+07
+goal small0
+dff : 4.99241e+07
+goal small0
+dff : 4.99761e+07
+goal small0
+dff : 5.00305e+07
+goal small0
+dff : 5.00481e+07
+goal small0
+dff : 5.00509e+07
+goal small0
+dff : 4.99842e+07
+goal small0
+dff : 4.99446e+07
+goal small0
+dff : 4.99542e+07
+goal small0
+dff : 4.99555e+07
+goal small0
+dff : 5.00141e+07
+goal small0
+dff : 5.0032e+07
+goal small0
+dff : 5.00518e+07
+goal small0
+dff : 5.00611e+07
+goal small0
+dff : 5.01067e+07
+goal small0
+dff : 5.0109e+07
+goal small0
+dff : 5.01056e+07
+goal small0
+dff : 5.00998e+07
+goal small0
+dff : 5.00721e+07
+goal small0
+dff : 5.0047e+07
+goal small0
+dff : 5.00105e+07
+goal small0
+dff : 5.00029e+07
+goal small0
+dff : 5.00057e+07
+goal small0
+dff : 5.00175e+07
+goal small0
+dff : 5.00614e+07
+goal small0
+dff : 5.01237e+07
+goal small0
+dff : 5.01429e+07
+goal small0
+dff : 5.0146e+07
+goal small0
+dff : 5.01497e+07
+goal small0
+dff : 5.01509e+07
+goal small0
+dff : 5.01548e+07
+goal small0
+dff : 5.01634e+07
+goal small0
+dff : 5.01643e+07
+goal small0
+dff : 5.01681e+07
+goal small0
+dff : 5.013e+07
+goal small0
+dff : 5.01107e+07
+goal small0
+dff : 5.00866e+07
+goal small0
+dff : 5.0084e+07
+goal small0
+dff : 5.00729e+07
+goal small0
+dff : 5.007e+07
+goal small0
+dff : 5.00649e+07
+goal small0
+dff : 5.00695e+07
+goal small0
+dff : 5.00713e+07
+goal small0
+dff : 5.00726e+07
+goal small0
+dff : 5.00739e+07
+goal small0
+dff : 5.00763e+07
+goal small0
+dff : 5.00764e+07
+goal small0
+dff : 5.00769e+07
+goal small0
+dff : 5.00774e+07
+goal small0
+dff : 5.00786e+07
+goal small0
+dff : 5.00801e+07
+goal small0.25
+dff : 5.00804e+07
+goal small0
+dff : 5.00821e+07
+goal small0
+dff : 5.00835e+07
+goal small0
+dff : 5.00845e+07
+goal small0
+dff : 5.00851e+07
+goal small0
+dff : 5.00872e+07
+goal small0
+dff : 5.00872e+07
+goal small0
+dff : 5.00894e+07
+goal small0
+dff : 5.00895e+07
+goal small0
+dff : 5.00911e+07
+goal small0
+dff : 5.00923e+07
+goal small0
+dff : 5.01084e+07
+goal small0
+dff : 5.01097e+07
+goal small0
+dff : 5.01189e+07
+goal small0
+dff : 5.01197e+07
+goal small0
+dff : 5.01211e+07
+goal small2
+dff : 5.01205e+07
+goal small0
+dff : 5.0121e+07
+goal small0
+dff : 5.01217e+07
+goal small0
+dff : 5.01218e+07
+goal small0
+dff : 5.01219e+07
+goal small0
+dff : 5.0122e+07
+goal small0
+dff : 5.01219e+07
+goal small0
+dff : 5.01221e+07
+goal small0
+dff : 5.01225e+07
+goal small0
+dff : 5.01225e+07
+goal small0
+dff : 5.01225e+07
+goal small0
+dff : 5.01229e+07
+goal small0
+dff : 5.01232e+07
+goal small0
+dff : 5.01234e+07
+goal small0
+dff : 5.01235e+07
+goal small0
+dff : 5.01236e+07
+goal small0
+dff : 5.01235e+07
+goal small0
+dff : 5.01235e+07
+goal small0
+dff : 5.01396e+07
+goal small0
+dff : 5.01403e+07
+goal small0
+dff : 5.01449e+07
+goal small0
+dff : 5.01475e+07
+goal small0
+dff : 5.01552e+07
+goal small0
+dff : 5.01645e+07
+goal small0
+dff : 5.01697e+07
+goal small0
+dff : 5.01697e+07
+goal small0
+dff : 5.01696e+07
+goal small0
+dff : 5.01717e+07
+goal small0
+dff : 5.01744e+07
+goal small0
+dff : 5.01802e+07
+goal small0
+dff : 5.01833e+07
+goal small0
+dff : 5.01831e+07
+goal small0
+dff : 5.01839e+07
+goal small0
+dff : 5.01853e+07
+goal small0
+dff : 5.01856e+07
+goal small0
+dff : 5.01869e+07
+goal small0
+dff : 5.01881e+07
+goal small0
+dff : 5.0189e+07
+goal small0
+dff : 5.01886e+07
+goal small0
+dff : 5.01801e+07
+goal small0
+dff : 5.01762e+07
+goal small0
+dff : 5.01761e+07
+goal small0
+dff : 5.01763e+07
+goal small0
+dff : 5.01756e+07
+goal small0
+dff : 5.0176e+07
+goal small0
+dff : 5.01791e+07
+goal small0
+dff : 5.01792e+07
+goal small0
+dff : 5.01789e+07
+goal small0
+dff : 5.01796e+07
+goal small0
+dff : 5.01865e+07
+goal small0
+dff : 5.01873e+07
+goal small0
+dff : 5.01873e+07
+goal small0
+dff : 5.01991e+07
+goal small0
+dff : 5.02002e+07
+goal small0
+dff : 5.02021e+07
+goal small0
+dff : 5.02025e+07
+goal small0
+dff : 5.02034e+07
+goal small0
+dff : 5.02042e+07
+goal small0
+dff : 5.02066e+07
+goal small0
+dff : 5.02175e+07
+goal small0
+dff : 5.02184e+07
+goal small0.5
+dff : 5.02313e+07
+goal small0
+dff : 5.02324e+07
+goal small0
+dff : 5.02334e+07
+goal small0
+dff : 5.02337e+07
+goal small0
+dff : 5.02361e+07
+goal small0
+dff : 5.02379e+07
+goal small0
+dff : 5.0238e+07
+goal small0.5
+dff : 5.02406e+07
+goal small0
+dff : 5.02422e+07
+goal small0
+dff : 5.02437e+07
+goal small0
+dff : 5.02469e+07
+goal small0
+dff : 5.02495e+07
+goal small0
+dff : 5.02518e+07
+goal small0
+dff : 5.02547e+07
+goal small0
+dff : 5.02548e+07
+goal small0
+dff : 5.0255e+07
+goal small0
+dff : 5.02552e+07
+goal small0.5
+dff : 5.0255e+07
+goal small0
+dff : 5.02559e+07
+goal small0
+dff : 5.02556e+07
+goal small0
+dff : 5.02568e+07
+goal small0
+dff : 5.02581e+07
+goal small0.5
+dff : 5.02579e+07
+goal small0
+dff : 5.02594e+07
+goal small0
+dff : 5.02616e+07
+goal small0
+dff : 5.02621e+07
+goal small0
+dff : 5.02632e+07
+goal small0
+dff : 5.0267e+07
+goal small0
+dff : 5.02678e+07
+goal small0
+dff : 5.02683e+07
+goal small0
+dff : 5.02696e+07
+goal small0
+dff : 5.02744e+07
+goal small0
+dff : 5.0277e+07
+goal small0
+dff : 5.02782e+07
+goal small0
+dff : 5.02615e+07
+goal small0
+dff : 5.02404e+07
+goal small0
+dff : 5.02281e+07
+goal small0
+dff : 5.02226e+07
+goal small0
+dff : 5.02185e+07
+goal small0
+dff : 5.02106e+07
+goal small0
+dff : 5.0195e+07
+goal small0
+dff : 5.01908e+07
+goal small0
+dff : 5.01733e+07
+goal small0
+dff : 5.01734e+07
+goal small0
+dff : 5.01726e+07
+goal small0
+dff : 5.01734e+07
+goal small0
+dff : 5.01738e+07
+goal small0
+dff : 5.01734e+07
+goal small0
+dff : 5.0174e+07
+goal small0
+dff : 5.0174e+07
+goal small0
+dff : 5.01746e+07
+goal small0
+dff : 5.0175e+07
+goal small0
+dff : 5.0175e+07
+goal small0
+dff : 5.01752e+07
+goal small0
+dff : 5.01755e+07
+goal small0
+dff : 5.01758e+07
+goal small0
+dff : 5.01762e+07
+goal small0
+dff : 5.01764e+07
+goal small0
+dff : 5.01766e+07
+goal small0
+dff : 5.01769e+07
+goal small0
+dff : 5.01773e+07
+goal small0
+dff : 5.01772e+07
+goal small0
+dff : 5.01776e+07
+goal small0
+dff : 5.01779e+07
+goal small0
+dff : 5.01781e+07
+goal small0
+dff : 5.01784e+07
+goal small0
+dff : 5.01784e+07
+goal small0
+dff : 5.01787e+07
+goal small0
+dff : 5.01791e+07
+goal small0
+dff : 5.01793e+07
+goal small0
+dff : 5.01803e+07
+goal small0
+dff : 5.01807e+07
+goal small0
+dff : 5.01811e+07
+goal small0
+dff : 5.01811e+07
+goal small0
+dff : 5.01817e+07
+goal small0
+dff : 5.01816e+07
+goal small0
+dff : 5.01817e+07
+goal small0
+dff : 5.01821e+07
+goal small0
+dff : 5.01822e+07
+goal small0
+dff : 5.01831e+07
+goal small0
+dff : 5.01839e+07
+goal small0
+dff : 5.01977e+07
+goal small0
+dff : 5.02033e+07
+goal small0
+dff : 5.02193e+07
+goal small0
+dff : 5.02274e+07
+goal small0
+dff : 5.0247e+07
+goal small0
+dff : 5.0257e+07
+goal small0
+dff : 5.02742e+07
+goal small0
+dff : 5.0283e+07
+goal small0
+dff : 5.02965e+07
+goal small0
+dff : 5.0305e+07
+goal small0
+dff : 5.03063e+07
+goal small0
+dff : 5.03064e+07
+goal small0
+dff : 5.03063e+07
+goal small0
+dff : 5.03076e+07
+goal small0
+dff : 5.03084e+07
+goal small0
+dff : 5.03085e+07
+goal small0
+dff : 5.0309e+07
+goal small0
+dff : 5.03095e+07
+goal small0
+dff : 5.03096e+07
+goal small0
+dff : 5.03098e+07
+goal small0
+dff : 5.03104e+07
+goal small0
+dff : 5.03105e+07
+goal small0
+dff : 5.03105e+07
+goal small0
+dff : 5.03109e+07
+goal small0
+dff : 5.03115e+07
+goal small0
+dff : 5.03116e+07
+goal small0
+dff : 5.03122e+07
+goal small0
+dff : 5.03122e+07
+goal small0
+dff : 5.03128e+07
+goal small0
+dff : 5.03133e+07
+goal small0
+dff : 5.03133e+07
+goal small0
+dff : 5.03138e+07
+goal small0
+dff : 5.03144e+07
+goal small0
+dff : 5.03149e+07
+goal small0
+dff : 5.03157e+07
+goal small0
+dff : 5.03156e+07
+goal small0
+dff : 5.03165e+07
+goal small0
+dff : 5.03164e+07
+goal small0
+dff : 5.03166e+07
+goal small0
+dff : 5.03171e+07
+goal small0
+dff : 5.03172e+07
+goal small0
+dff : 5.03183e+07
+goal small0
+dff : 5.03185e+07
+goal small0
+dff : 5.03183e+07
+goal small0
+dff : 5.03187e+07
+goal small0
+dff : 5.03187e+07
+goal small0
+dff : 5.03379e+07
+goal small0
+dff : 5.03394e+07
+goal small0
+dff : 5.03443e+07
+goal small0
+dff : 5.0352e+07
+goal small0
+dff : 5.03711e+07
+goal small0
+dff : 5.03787e+07
+goal small0
+dff : 5.03848e+07
+goal small0
+dff : 5.04041e+07
+goal small0
+dff : 5.04085e+07
+goal small0
+dff : 5.04254e+07
+goal small0
+dff : 5.04341e+07
+goal small0
+dff : 5.0446e+07
+goal small0
+dff : 5.05777e+07
+goal small0
+dff : 5.0546e+07
+goal small0
+dff : 5.04734e+07
+goal small0
+dff : 5.04954e+07
+goal small0
+dff : 5.06634e+07
+goal small0
+dff : 5.0668e+07
+goal small0
+dff : 5.06769e+07
+goal small0
+dff : 5.06822e+07
+goal small0
+dff : 5.06842e+07
+goal small0
+dff : 5.06933e+07
+goal small0
+dff : 5.06933e+07
+goal small0
+dff : 5.06934e+07
+goal small0
+dff : 5.06968e+07
+goal small0
+dff : 5.06975e+07
+goal small0
+dff : 5.06944e+07
+goal small0
+dff : 5.06932e+07
+goal small0
+dff : 5.06873e+07
+goal small2
+dff : 5.06818e+07
+goal small0
+dff : 5.06734e+07
+goal small0
+dff : 5.06621e+07
+goal small0
+dff : 5.06543e+07
+goal small0
+dff : 5.06346e+07
+goal small0
+dff : 5.06285e+07
+goal small0
+dff : 5.06001e+07
+goal small0
+dff : 5.05967e+07
+goal small0
+dff : 5.05605e+07
+goal small0
+dff : 5.05582e+07
+goal small0
+dff : 5.0558e+07
+goal small0
+dff : 5.05114e+07
+goal small0
+dff : 5.05078e+07
+goal small0
+dff : 5.04579e+07
+goal small0
+dff : 5.04509e+07
+goal small0
+dff : 5.03977e+07
+goal small0
+dff : 5.03878e+07
+goal small0
+dff : 5.03291e+07
+goal small0
+dff : 5.03165e+07
+goal small0
+dff : 5.02532e+07
+goal small0
+dff : 5.02398e+07
+goal small0
+dff : 5.01683e+07
+goal small2
+dff : 5.01557e+07
+goal small0
+dff : 5.0076e+07
+goal small0
+dff : 5.00664e+07
+goal small0
+dff : 4.9976e+07
+goal small0
+dff : 4.99716e+07
+goal small0
+dff : 4.9918e+07
+goal small0
+dff : 4.98711e+07
+goal small0
+dff : 4.98666e+07
+goal small0
+dff : 4.97654e+07
+goal small0
+dff : 4.97477e+07
+goal small0
+dff : 4.96546e+07
+goal small0
+dff : 4.96201e+07
+goal small0
+dff : 4.95404e+07
+goal small0
+dff : 4.94633e+07
+goal small0
+dff : 4.94219e+07
+goal small0
+dff : 4.78505e+07
+goal small0
+dff : 4.67104e+07
+goal small0
+dff : 4.58205e+07
+goal small0
+dff : 4.37466e+07
+goal small0
+dff : 4.28659e+07
+goal small0
+dff : 4.08153e+07
+goal small0
+dff : 3.99426e+07
+goal small0
+dff : 3.79139e+07
+goal small0
+dff : 3.58953e+07
+goal small0
+dff : 3.50411e+07
+goal small0
+dff : 3.30435e+07
+goal small0
+dff : 3.22013e+07
+goal small0
+dff : 3.02305e+07
+goal small0
+dff : 2.94042e+07
+goal small0
+dff : 2.84354e+07
+goal small0
+dff : 2.80272e+07
+goal small0
+dff : 2.75478e+07
+goal small0
+dff : 2.73451e+07
+goal small0
+dff : 2.72438e+07
+goal small0
+dff : 2.70065e+07
+goal small0
+dff : 2.69055e+07
+goal small0
+dff : 2.66685e+07
+goal small0
+dff : 2.66179e+07
+goal small0
+dff : 2.64987e+07
+goal small0
+dff : 2.64475e+07
+goal small0
+dff : 2.63277e+07
+goal small0
+dff : 2.62765e+07
+goal small0
+dff : 2.61562e+07
+goal small0
+dff : 2.6105e+07
+goal small0
+dff : 2.59845e+07
+goal small0
+dff : 2.59328e+07
+goal small0
+dff : 2.58112e+07
+goal small0
+dff : 2.57594e+07
+goal small0
+dff : 2.5638e+07
+goal small0
+dff : 2.55859e+07
+goal small0
+dff : 2.54636e+07
+goal small0
+dff : 2.54113e+07
+goal small0
+dff : 2.5288e+07
+goal small0
+dff : 2.52355e+07
+goal small0
+dff : 2.51124e+07
+goal small0
+dff : 2.50596e+07
+goal small0
+dff : 2.49359e+07
+goal small0
+dff : 2.48833e+07
+goal small0
+dff : 2.47586e+07
+goal small0
+dff : 2.47056e+07
+goal small0
+dff : 2.45811e+07
+goal small0
+dff : 2.45277e+07
+goal small0
+dff : 2.44022e+07
+goal small0
+dff : 2.43489e+07
+goal small0
+dff : 2.4223e+07
+goal small0
+dff : 2.41692e+07
+goal small0
+dff : 2.4043e+07
+goal small0
+dff : 2.3989e+07
+goal small0
+dff : 2.38621e+07
+goal small0
+dff : 2.38081e+07
+goal small0
+dff : 2.3681e+07
+goal small0
+dff : 2.36267e+07
+goal small0
+dff : 2.3499e+07
+goal small0
+dff : 2.34446e+07
+goal small0
+dff : 2.33164e+07
+goal small0
+dff : 2.32619e+07
+goal small0
+dff : 2.31333e+07
+goal small0
+dff : 2.30785e+07
+goal small0
+dff : 2.29495e+07
+goal small0
+dff : 2.28943e+07
+goal small0
+dff : 2.27648e+07
+goal small0
+dff : 2.27097e+07
+goal small0
+dff : 2.25797e+07
+goal small0
+dff : 2.25243e+07
+goal small0
+dff : 2.23943e+07
+goal small0
+dff : 2.23387e+07
+goal small0
+dff : 2.22078e+07
+goal small0
+dff : 2.21522e+07
+goal small0
+dff : 2.20212e+07
+goal small0
+dff : 2.1965e+07
+goal small0
+dff : 2.18331e+07
+goal small0
+dff : 2.17771e+07
+goal small0
+dff : 2.16446e+07
+goal small0
+dff : 2.15884e+07
+goal small0
+dff : 2.14565e+07
+goal small0
+dff : 2.14e+07
+goal small0
+dff : 2.1267e+07
+goal small0
+dff : 2.12104e+07
+goal small0
+dff : 2.10764e+07
+goal small0
+dff : 2.10195e+07
+goal small0
+dff : 2.08855e+07
+goal small0
+dff : 2.08286e+07
+goal small0
+dff : 2.06946e+07
+goal small0
+dff : 2.06373e+07
+goal small0
+dff : 2.05022e+07
+goal small0
+dff : 2.04448e+07
+goal small0
+dff : 2.03098e+07
+goal small0
+dff : 2.02522e+07
+goal small0
+dff : 2.01171e+07
+goal small0
+dff : 2.00596e+07
+goal small0
+dff : 1.99234e+07
+goal small0
+dff : 1.98654e+07
+goal small0
+dff : 1.97291e+07
+goal small0
+dff : 1.96712e+07
+goal small0
+dff : 1.95349e+07
+goal small0
+dff : 1.94765e+07
+goal small0
+dff : 1.93391e+07
+goal small0
+dff : 1.9281e+07
+goal small0
+dff : 1.91435e+07
+goal small0
+dff : 1.90851e+07
+goal small0
+dff : 1.89475e+07
+goal small0
+dff : 1.88888e+07
+goal small0
+dff : 1.87502e+07
+goal small0
+dff : 1.86914e+07
+goal small0
+dff : 1.85532e+07
+goal small0
+dff : 1.84942e+07
+goal small0
+dff : 1.83548e+07
+goal small0
+dff : 1.82958e+07
+goal small0
+dff : 1.81568e+07
+goal small0
+dff : 1.80975e+07
+goal small0
+dff : 1.79579e+07
+goal small0
+dff : 1.78985e+07
+goal small0
+dff : 1.77583e+07
+goal small0
+dff : 1.76989e+07
+goal small0
+dff : 1.7559e+07
+goal small0
+dff : 1.74993e+07
+goal small0
+dff : 1.73583e+07
+goal small0
+dff : 1.72985e+07
+goal small0
+dff : 1.71574e+07
+goal small0
+dff : 1.70975e+07
+goal small0
+dff : 1.69562e+07
+goal small0
+dff : 1.68961e+07
+goal small0
+dff : 1.67546e+07
+goal small0
+dff : 1.66944e+07
+goal small0
+dff : 1.65527e+07
+goal small0
+dff : 1.64924e+07
+goal small0
+dff : 1.63495e+07
+goal small0
+dff : 1.62889e+07
+goal small0
+dff : 1.61469e+07
+goal small0
+dff : 1.60864e+07
+goal small0
+dff : 1.59437e+07
+goal small0
+dff : 1.58829e+07
+goal small0
+dff : 1.57394e+07
+goal small0
+dff : 1.56786e+07
+goal small0
+dff : 1.55354e+07
+goal small0
+dff : 1.54746e+07
+goal small0
+dff : 1.53307e+07
+goal small0
+dff : 1.52696e+07
+goal small0
+dff : 1.51255e+07
+goal small0
+dff : 1.50643e+07
+goal small0
+dff : 1.49199e+07
+goal small0
+dff : 1.48586e+07
+goal small0
+dff : 1.4714e+07
+goal small0
+dff : 1.46526e+07
+goal small0
+dff : 1.45081e+07
+goal small0
+dff : 1.44466e+07
+goal small0
+dff : 1.43009e+07
+goal small0
+dff : 1.42393e+07
+goal small0
+dff : 1.40938e+07
+goal small0
+dff : 1.4032e+07
+goal small0
+dff : 1.38868e+07
+goal small0
+dff : 1.38249e+07
+goal small0
+dff : 1.36788e+07
+goal small0
+dff : 1.36168e+07
+goal small0
+dff : 1.34704e+07
+goal small0
+dff : 1.34084e+07
+goal small0
+dff : 1.32622e+07
+goal small0
+dff : 1.32001e+07
+goal small0
+dff : 1.30536e+07
+goal small0
+dff : 1.29913e+07
+goal small0
+dff : 1.28445e+07
+goal small0
+dff : 1.27823e+07
+goal small0
+dff : 1.2635e+07
+goal small0
+dff : 1.25723e+07
+goal small0
+dff : 1.24248e+07
+goal small0
+dff : 1.22773e+07
+goal small0
+dff : 1.22148e+07
+goal small0
+dff : 1.2184e+07
+goal small0
+dff : 1.2005e+07
+goal small0
+dff : 1.1974e+07
+goal small0
+dff : 1.17939e+07
+goal small0
+dff : 1.17631e+07
+goal small0
+dff : 1.15832e+07
+goal small0
+dff : 1.15521e+07
+goal small0
+dff : 1.13718e+07
+goal small0
+dff : 1.13408e+07
+goal small0
+dff : 1.11612e+07
+goal small0
+dff : 1.113e+07
+goal small0
+dff : 1.09492e+07
+goal small0
+dff : 1.09181e+07
+goal small0
+dff : 1.07374e+07
+goal small0
+dff : 1.07063e+07
+goal small0
+dff : 1.05257e+07
+goal small0
+dff : 1.04945e+07
+goal small0
+dff : 1.03134e+07
+goal small0
+dff : 1.02822e+07
+goal small0
+dff : 1.0101e+07
+goal small0
+dff : 1.00697e+07
+goal small0
+dff : 9.8875e+06
+goal small0
+dff : 9.8562e+06
+goal small0
+dff : 9.67455e+06
+goal small0
+dff : 9.64323e+06
+goal small0
+dff : 9.46217e+06
+goal small0
+dff : 9.43095e+06
+goal small0
+dff : 9.24928e+06
+goal small0
+dff : 9.21787e+06
+goal small0
+dff : 9.03558e+06
+goal small0
+dff : 9.00426e+06
+goal small0.5
+dff : 8.82206e+06
+goal small0
+dff : 8.79071e+06
+goal small0
+dff : 8.60834e+06
+goal small0
+dff : 8.5768e+06
+goal small0
+dff : 8.3945e+06
+goal small0
+dff : 8.36317e+06
+goal small0
+dff : 8.18067e+06
+goal small0
+dff : 8.14918e+06
+goal small0
+dff : 7.96673e+06
+goal small0
+dff : 7.93537e+06
+goal small0
+dff : 7.75225e+06
+goal small0
+dff : 7.72077e+06
+goal small0
+dff : 7.53814e+06
+goal small0
+dff : 7.50662e+06
+goal small0
+dff : 7.32403e+06
+goal small0
+dff : 7.29251e+06
+goal small0
+dff : 7.10967e+06
+goal small0
+dff : 7.07815e+06
+goal small0
+dff : 6.89502e+06
+goal small0
+dff : 6.86353e+06
+goal small0
+dff : 6.68e+06
+goal small0
+dff : 6.64843e+06
+goal small0
+dff : 6.46577e+06
+goal small0
+dff : 6.43427e+06
+goal small0
+dff : 6.25163e+06
+goal small0
+dff : 6.22021e+06
+goal small0
+dff : 6.03684e+06
+goal small0
+dff : 6.00529e+06
+goal small0
+dff : 5.82274e+06
+goal small0
+dff : 5.79126e+06
+goal small0
+dff : 5.60833e+06
+goal small0
+dff : 5.57672e+06
+goal small0
+dff : 5.39384e+06
+goal small0
+dff : 5.36243e+06
+goal small0
+dff : 5.17919e+06
+goal small0
+dff : 5.14765e+06
+goal small0
+dff : 4.96521e+06
+goal small0
+dff : 4.93373e+06
+goal small0
+dff : 4.75133e+06
+goal small0
+dff : 4.71993e+06
+goal small0
+dff : 4.53717e+06
+goal small0
+dff : 4.50577e+06
+goal small0
+dff : 4.32309e+06
+goal small0
+dff : 4.29163e+06
+goal small0
+dff : 4.10938e+06
+goal small0
+dff : 4.07808e+06
+goal small0
+dff : 3.89708e+06
+goal small0
+dff : 3.86571e+06
+goal small0
+dff : 3.6833e+06
+goal small0
+dff : 3.65202e+06
+goal small0
+dff : 3.47093e+06
+goal small0
+dff : 3.43983e+06
+goal small0
+dff : 3.25931e+06
+goal small0
+dff : 3.22816e+06
+goal small0
+dff : 3.04828e+06
+goal small0
+dff : 3.01725e+06
+goal small0
+dff : 2.83783e+06
+goal small0
+dff : 2.80688e+06
+goal small0.25
+dff : 2.62751e+06
+goal small0
+dff : 2.59686e+06
+goal small0
+dff : 2.41912e+06
+goal small0
+dff : 2.38852e+06
+goal small0
+dff : 2.21227e+06
+goal small0
+dff : 2.18188e+06
+goal small0
+dff : 2.00622e+06
+goal small0
+dff : 1.97615e+06
+goal small0
+dff : 1.80347e+06
+goal small0
+dff : 1.77396e+06
+goal small0
+dff : 1.60418e+06
+goal small0
+dff : 1.56097e+06
+goal small0
+dff : 1.50325e+06
+goal small0
+dff : 1.41951e+06
+goal small0
+dff : 1.38496e+06
+goal small0
+dff : 1.34399e+06
+goal small0
+dff : 1.30982e+06
+goal small0
+dff : 1.26777e+06
+goal small0
+dff : 1.24222e+06
+goal small0
+dff : 1.19241e+06
+goal small0
+dff : 1.17428e+06
+goal small0
+dff : 1.11683e+06
+goal small0
+dff : 1.10534e+06
+goal small0
+dff : 1.03983e+06
+goal small0
+dff : 1.03423e+06
+goal small0
+dff : 963902
+goal small0
+dff : 962859
+goal small0.03125
+dff : 941904
+goal small0
+dff : 889753
+goal small0
+dff : 887132
+goal small0
+dff : 814531
+goal small0
+dff : 809286
+goal small0
+dff : 737710
+goal small0.00390625
+dff : 731232
+goal small0
+dff : 660168
+goal small0.00390625
+dff : 653416
+goal small0
+dff : 579724
+goal small0.0078125
+dff : 574029
+goal small0
+dff : 496878
+goal small0.015625
+dff : 493998
+goal small0
+dff : 436593
+goal small0
+dff : 413688
+goal small0
+dff : 412469
+goal small0
+dff : 333307
+goal small0
+dff : 326313
+goal small0
+dff : 250588
+goal small0
+dff : 235605
+goal small0
+dff : 167889
+goal small0
+dff : 143342
+goal small0
+dff : 84986.6
+goal small0
+dff : 48366.3
+goal small0
+dff : 0
+END Polygon:2740
+Make Polygon
+goal small0
+dff : 88005.3
+goal small0
+dff : 153946
+goal small0
+dff : 176058
+goal small0
+dff : 242330
+goal small0
+dff : 264230
+goal small0
+dff : 329648
+goal small0
+dff : 351708
+goal small0
+dff : 417534
+goal small0
+dff : 439195
+goal small0
+dff : 503507
+goal small0.5
+dff : 525155
+goal small0
+dff : 589040
+goal small0
+dff : 610798
+goal small0
+dff : 674543
+goal small0
+dff : 695778
+goal small0
+dff : 757471
+goal small0
+dff : 778842
+goal small0
+dff : 840343
+goal small0
+dff : 861423
+goal small0
+dff : 921657
+goal small0
+dff : 942519
+goal small0
+dff : 1.00135e+06
+goal small0
+dff : 1.02201e+06
+goal small0
+dff : 1.07901e+06
+goal small0
+dff : 1.09946e+06
+goal small0
+dff : 1.15572e+06
+goal small0.5
+dff : 1.17565e+06
+goal small0
+dff : 1.22964e+06
+goal small0
+dff : 1.24948e+06
+goal small0
+dff : 1.3024e+06
+goal small0
+dff : 1.32149e+06
+goal small0
+dff : 1.37223e+06
+goal small0
+dff : 1.39121e+06
+goal small0
+dff : 1.43984e+06
+goal small0
+dff : 1.45789e+06
+goal small0
+dff : 1.50474e+06
+goal small0
+dff : 1.52245e+06
+goal small0
+dff : 1.56718e+06
+goal small0
+dff : 1.58419e+06
+goal small0
+dff : 1.62602e+06
+goal small0.5
+dff : 1.64253e+06
+goal small0
+dff : 1.68306e+06
+goal small0.5
+dff : 1.69846e+06
+goal small0
+dff : 1.73584e+06
+goal small0.5
+dff : 1.75044e+06
+goal small0
+dff : 1.78603e+06
+goal small0
+dff : 1.79972e+06
+goal small0
+dff : 1.83221e+06
+goal small0
+dff : 1.8452e+06
+goal small0
+dff : 1.87514e+06
+goal small0.5
+dff : 1.88667e+06
+goal small0
+dff : 1.91421e+06
+goal small0
+dff : 1.92492e+06
+goal small0
+dff : 1.94914e+06
+goal small0
+dff : 1.95855e+06
+goal small0
+dff : 1.98095e+06
+goal small0.5
+dff : 1.98937e+06
+goal small0
+dff : 2.00815e+06
+goal small0
+dff : 2.01518e+06
+goal small0
+dff : 2.0315e+06
+goal small0
+dff : 2.03707e+06
+goal small0
+dff : 2.05018e+06
+goal small0
+dff : 2.05429e+06
+goal small0
+dff : 2.0649e+06
+goal small0.5
+dff : 2.06806e+06
+goal small0
+dff : 2.07533e+06
+goal small0.5
+dff : 2.07684e+06
+goal small0
+dff : 2.08128e+06
+goal small0
+dff : 2.08121e+06
+goal small0
+dff : 2.08301e+06
+goal small0.5
+dff : 2.0817e+06
+goal small0
+dff : 2.08022e+06
+goal small0.5
+dff : 2.07766e+06
+goal small0
+dff : 2.0729e+06
+goal small0
+dff : 2.06877e+06
+goal small0
+dff : 2.06137e+06
+goal small0.5
+dff : 2.05557e+06
+goal small0
+dff : 2.04533e+06
+goal small0.5
+dff : 2.03863e+06
+goal small0
+dff : 2.02507e+06
+goal small0
+dff : 2.01693e+06
+goal small0
+dff : 2.00089e+06
+goal small0
+dff : 1.99132e+06
+goal small0
+dff : 1.9721e+06
+goal small0
+dff : 1.96117e+06
+goal small0
+dff : 1.93951e+06
+goal small0.5
+dff : 1.92763e+06
+goal small0
+dff : 1.90237e+06
+goal small0
+dff : 1.88921e+06
+goal small0
+dff : 1.86217e+06
+goal small0
+dff : 1.84827e+06
+goal small0
+dff : 1.81793e+06
+goal small0.5
+dff : 1.80259e+06
+goal small0
+dff : 1.7699e+06
+goal small0
+dff : 1.75394e+06
+goal small0
+dff : 1.71875e+06
+goal small0
+dff : 1.70194e+06
+goal small0
+dff : 1.66368e+06
+goal small0.5
+dff : 1.64613e+06
+goal small0
+dff : 1.60615e+06
+goal small0.5
+dff : 1.58756e+06
+goal small0
+dff : 1.54449e+06
+goal small0.5
+dff : 1.52545e+06
+goal small0
+dff : 1.48117e+06
+goal small0
+dff : 1.46151e+06
+goal small0
+dff : 1.41438e+06
+goal small0
+dff : 1.39449e+06
+goal small0
+dff : 1.34532e+06
+goal small0
+dff : 1.32458e+06
+goal small0
+dff : 1.27374e+06
+goal small0
+dff : 1.25295e+06
+goal small0
+dff : 1.20005e+06
+goal small0
+dff : 1.17865e+06
+goal small0
+dff : 1.12373e+06
+goal small0
+dff : 1.10229e+06
+goal small0
+dff : 1.04636e+06
+goal small0.5
+dff : 1.0245e+06
+goal small0
+dff : 966434
+goal small0
+dff : 944456
+goal small0
+dff : 885760
+goal small0
+dff : 863709
+goal small0
+dff : 803301
+goal small0
+dff : 781138
+goal small0
+dff : 719430
+goal small0
+dff : 697084
+goal small0
+dff : 634280
+goal small0
+dff : 612183
+goal small0
+dff : 549324
+goal small0
+dff : 526816
+goal small0
+dff : 462060
+goal small0
+dff : 439768
+goal small0
+dff : 375001
+goal small0.5
+dff : 352800
+goal small0
+dff : 287761
+goal small0
+dff : 265286
+goal small0
+dff : 198897
+goal small0
+dff : 176699
+goal small0
+dff : 110907
+goal small0
+dff : 88622.1
+goal small0
+dff : 22083.5
+goal small0
+dff : 0
+END Polygon:284
+Make Polygon
+goal small0
+dff : 7.003e+06
+goal small0
+dff : 7.01708e+06
+goal small0
+dff : 1.06291e+07
+goal small0
+dff : 1.03769e+07
+goal small0
+dff : 7.996e+06
+goal small0
+dff : 7.55178e+06
+goal small0
+dff : 0
+END Polygon:16
+Make Polygon
+line num20
+END Polygon:0
+Make Polygon
+line num19
+END Polygon:0
+Make Polygon
+line num18
+END Polygon:0
+Make Polygon
+line num17
+END Polygon:0
+Make Polygon
+line num16
+END Polygon:0
+Make Polygon
+line num15
+END Polygon:0
+Make Polygon
+line num14
+END Polygon:0
+Make Polygon
+line num13
+END Polygon:0
+Make Polygon
+line num12
+END Polygon:0
+Make Polygon
+line num11
+END Polygon:0
+Make Polygon
+goal small0
+dff : 207675
+goal small0
+dff : 575455
+goal small0
+dff : 579862
+goal small0
+dff : 581002
+goal small0
+dff : 586240
+goal small0
+dff : 565289
+goal small0.03125
+dff : 539752
+goal small0
+dff : 15200
+goal small0
+dff : 9562
+goal small0
+dff : 0
+END Polygon:22
+Poygon num:4
+END slice!!
+Count :0
+solution size: 4
+Count :1
+solution size: 3
+Count :2
+solution size: 2
+Count :3
+solution size: 2
+Count :4

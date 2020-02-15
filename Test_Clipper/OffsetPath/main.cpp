@@ -9,6 +9,7 @@ static GLFWwindow*  aWindow;
 static int          aWidth = 640;
 static int          aHeight = 480;
 static std::string  aTitle = "Line";
+bool flag=true;
 
 void DrowPolygon(Paths);
 
@@ -100,7 +101,7 @@ int main()
     // ビューポートの更新。
     glViewport( 0, 0, width, height );
     // 透視投影。 //これないと表示されない
-    //gluPerspective( 30.0, (double)width / (double)height, 1.0, 100.0 );
+    gluPerspective( 30.0, (double)width / (double)height, 1.0, 500.0 );
     
     //カメラ
     //double cam_x,cam_y,cam_z;
@@ -108,7 +109,7 @@ int main()
     //cam_y = cam_length * sin((cam_deg2*M_PI)/180)*sin((cam_deg1*M_PI)/180);
     //cam_z = cam_length * cos((cam_deg2*M_PI)/180);
     //gluLookAt( cam_x, cam_y, cam_z,  0.0, 0.0, 0.0,  0.0, 0.0, 1.0 );
-    gluLookAt(0, 0, 0, 0,0,-1,0,1,0);
+    gluLookAt(0, 1, 500, 0,0,0,0,0,1);
     DrowPolygon(solutions);
 
 
@@ -132,9 +133,13 @@ void DrowPolygon(Paths paths){
         for(int j=0; j < paths[i].size(); j++ )
         {
             //std::cout << paths[i][j] << std::endl;
-            glVertex2d((double)paths[i][j].X/100-0.5, (double)paths[i][j].Y/100-0.5);
+            glVertex3d((double)paths[i][j].X, (double)paths[i][j].Y, 0);
         }
         glEnd();
+        if(flag){
+            std::cout << Area(paths[i]) << std::endl;
+        }
     }
+    flag=false;
 
 }

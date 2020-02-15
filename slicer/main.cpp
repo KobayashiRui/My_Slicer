@@ -111,6 +111,8 @@ int main(int argc, char *argv[])
   }
   std::cout << "END slice!!" <<std::endl;
 
+
+
   //openglにて表示
   /* GLFW3の初期化 */
   if(! glfwInit() )
@@ -175,7 +177,7 @@ int main(int argc, char *argv[])
     // ビューポートの更新。
     glViewport( 0, 0, width, height );
     // 透視投影。 //これないと表示されない
-    gluPerspective( 30.0, (double)width / (double)height, 1.0, 100.0 );
+    gluPerspective( 30.0, (double)width / (double)height, 1.0, 500.0 );
     
     //カメラ
     double cam_x,cam_y,cam_z;
