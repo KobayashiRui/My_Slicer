@@ -636,7 +636,19 @@ void make_offset(std::vector<std::vector<point>>& polygons_data, std::vector<std
 
   }
 
+  //ポリゴンをきれいにする
   ClipperLib::SimplifyPolygons(subj);
+
+  //面積が小さいものは削除する
+  for(int i=0; i < subj.size(); i++)
+  {
+    double area = ClipperLib::Area(subj[i]);
+    if(area >= 0  && area <= 1e11){
+      subj.erase(subj.begin()+ i);
+    }
+    std::cout << "面積: " << ClipperLib::Area(subj[i]) << std::endl;
+  }
+
   co.AddPaths(subj, ClipperLib::jtRound, ClipperLib::etClosedPolygon);
   //co.AddPaths(subj, ClipperLib::jtSquare, ClipperLib::etClosedPolygon);
   int offset_num = 0;
@@ -659,7 +671,7 @@ void make_offset(std::vector<std::vector<point>>& polygons_data, std::vector<std
       }
       offset_num -=0.4*accuracy;
       count +=1;
-      //break;
+      break;
   }
 
 
