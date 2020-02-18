@@ -19,11 +19,17 @@ polyclipping/clipper.hpp
 /Users/rui/Documents/GitHub/My_Slicer/Slicer_v2/polyclipping/clipper.hpp
 iostream
 -
+fstream
+-
 cassert
 -
 vector
 -
 cmath
+-
+string
+-
+sstream
 -
 Eigen/Dense
 -

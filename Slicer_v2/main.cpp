@@ -2,9 +2,12 @@
 #include <GLFW/glfw3.h>
 #include "polyclipping/clipper.hpp"
 #include <iostream>
+#include <fstream>
 #include <cassert>
 #include <vector>
 #include <cmath>
+#include <string>
+#include <sstream>
 
 #include <Eigen/Dense>
 
@@ -13,6 +16,7 @@
 
 
 #define accuracy 1e6
+#define m2mm 1e3
 #define line_diff 1e-6
 
 static GLFWwindow*  aWindow;
@@ -24,15 +28,23 @@ static int          camera_move_sens = 3;
 static int          cam_deg2_min = 1;
 static int          cam_deg2_max = 160;
 
+//プリンタの設定
+static float nozzule = 0.4;
+static float layer = 0.2;
+static float filament = 1.75;
+
+
 
 void make_line(std::vector<line>&,plane, triangle);
 bool check_line(std::vector<line>&, line);
 void make_polygon(std::vector<line>&, std::vector<point>&);
 void make_polygon2(std::vector<line>&, std::vector<point>&);
 void drawLine(std::vector<std::vector<point>>);
-void make_offset(std::vector<std::vector<point>>&, std::vector<std::vector<point>>&);
+void make_offset(std::vector<std::vector<point>>&, std::vector<std::vector<point>>&); //ポリゴンデータの配列, オフセット生成後のデータ
+void make_gcode(std::vector<std::vector<point>>&, std::ofstream&); 
 void addPoint(int , int , ClipperLib::Path *);
 point float2int(point);
+float round_n(float, float);
 
 //OpenGL用
 double cam_deg1 = 45, cam_deg2 = 1;
@@ -66,7 +78,7 @@ int main(int argc, char *argv[])
 
   //TODO STLのサイズに合わせてルプ数を決定する
   std::vector<line> line_datas;
-  for(int i = 35; i < 36; i++){
+  for(int i = 0; i < 1; i++){
   //for(int i = 0; i < 1; i++){
 
     std::cout << "Count: " << i << std::endl;
@@ -74,7 +86,7 @@ int main(int argc, char *argv[])
     line_datas.clear();
 
     //平面の定義
-    point origin = point(0, 0, i * 0.2);
+    point origin = point(0, 0, (i+1 )* layer);
     point plane_normal = point(0, 0, 1);
     plane slice_plane = plane(origin, plane_normal);
 
@@ -85,7 +97,7 @@ int main(int argc, char *argv[])
       make_line(line_datas,slice_plane, t); //slice_planeにてスライスした結果の線分がline_datasに格納される
       count_make_line ++;
     }
-    std::cout << "END line" << std::endl;
+    //std::cout << "END line" << std::endl;
 
     std::vector<point> polygon;
     std::vector<std::vector<point>> polygons;
@@ -98,9 +110,9 @@ int main(int argc, char *argv[])
       //std::cout << "line_size " << line_datas.size() << std::endl;
       polygon.clear();
       //polygonの作成
-      std::cout << "Make Polygon" << std::endl;
+      //std::cout << "Make Polygon" << std::endl;
       make_polygon2(line_datas, polygon);
-      std::cout << "END Polygon:" << polygon.size() << std::endl;
+      //std::cout << "END Polygon:" << polygon.size() << std::endl;
       //polygonsへ追加
       if(polygon.size() >= 3){
         polygons.push_back(polygon);
@@ -110,7 +122,7 @@ int main(int argc, char *argv[])
         break;
       }
     }
-    std::cout << "Poygon num:" << polygons.size() << std::endl;
+    //std::cout << "Poygon num:" << polygons.size() << std::endl;
 
     //layerデータを保存
     layer_polygons.push_back(polygons);
@@ -120,14 +132,32 @@ int main(int argc, char *argv[])
   //ポリゴンの縮小
   std::vector<std::vector<point>> polygons;
   for(int i=0; i < layer_polygons.size(); i++){
+    std::cout << "layer num: " << i << std::endl;
     polygons.clear();
     make_offset(layer_polygons[i], polygons);
     layer_polygons_2.push_back(polygons);
   }
 
+  //Gコードの生成
+  //最初のGコード
+  //プリント用のGコード
+  //レイヤーごとの処理
+  std::ofstream gcode_file;
+  std::string filename = "test.gcode";
+  gcode_file.open(filename, std::ios::trunc);
+  for(int i=0; i < layer_polygons_2.size(); i++){
+    make_gcode(layer_polygons_2[i], gcode_file);
+  }
+  //最後のGコード
+
+  gcode_file.close();
+
+  std::cout << "Make Gcode" << std::endl;
+
 
 
   //openglにて表示
+
   /* GLFW3の初期化 */
   if(! glfwInit() )
   {
@@ -217,6 +247,11 @@ int main(int argc, char *argv[])
   glfwTerminate();
   return EXIT_SUCCESS;
 }
+
+
+/*///////////////////////////////// 
+ *  ここから関数定義
+*/////////////////////////////////
 
 void make_line(std::vector<line>&line_datas ,plane _plane, triangle _triangle){
   //垂線距離を求める
@@ -465,7 +500,7 @@ void make_polygon(std::vector<line>&line_datas, std::vector<point>&polygon)
     if(line_datas.size()- old_line_num == 0){
       //std::cout << "force " << std::endl;
 
-      std::cout << "line num" << line_datas.size() << std::endl;
+      //std::cout << "line num" << line_datas.size() << std::endl;
       if(diff_acc > 100000){
         polygon.clear();
         break;
@@ -545,7 +580,7 @@ void make_polygon2(std::vector<line>&line_datas, std::vector<point>&polygon)
       
     if(most_small <= 0.00001*accuracy)
     {
-      std::cout << "goal small" << most_small << std::endl;
+      //std::cout << "goal small" << most_small << std::endl;
       if(!reverse) 
       {
         search_p = line_datas[most_small_idx].p2;
@@ -561,7 +596,7 @@ void make_polygon2(std::vector<line>&line_datas, std::vector<point>&polygon)
         polygon.push_back(line_datas[most_small_idx].p1);
         line_datas.erase(line_datas.begin() + most_small_idx);
       }
-      std::cout << "dff : " << (sqrt(pow(goal_p.x - search_p.x,2) + pow(goal_p.y - search_p.y,2) + pow(goal_p.z - search_p.z,2) ))<< std::endl;
+     //std::cout << "dff : " << (sqrt(pow(goal_p.x - search_p.x,2) + pow(goal_p.y - search_p.y,2) + pow(goal_p.z - search_p.z,2) ))<< std::endl;
 
       if(sqrt(pow(goal_p.x - search_p.x,2) + pow(goal_p.y - search_p.y,2) + pow(goal_p.z - search_p.z,2) ) <= line_diff* accuracy)
       {
@@ -577,7 +612,7 @@ void make_polygon2(std::vector<line>&line_datas, std::vector<point>&polygon)
       //std::cout << "force " << std::endl;
 
       polygon.clear();
-      std::cout << "line num" << line_datas.size() << std::endl;
+      //std::cout << "line num" << line_datas.size() << std::endl;
         break;
 
     }else{
@@ -646,7 +681,7 @@ void make_offset(std::vector<std::vector<point>>& polygons_data, std::vector<std
     if(area >= 0  && area <= 1e11){
       subj.erase(subj.begin()+ i);
     }
-    std::cout << "面積: " << ClipperLib::Area(subj[i]) << std::endl;
+    //std::cout << "面積: " << ClipperLib::Area(subj[i]) << std::endl;
   }
 
   co.AddPaths(subj, ClipperLib::jtRound, ClipperLib::etClosedPolygon);
@@ -655,9 +690,9 @@ void make_offset(std::vector<std::vector<point>>& polygons_data, std::vector<std
   int count = 0;
   while(true)
   {
-    std::cout << "Count :" << count << std::endl;
+    //std::cout << "Count :" << count << std::endl;
       co.Execute(solution, offset_num);
-      std::cout << "solution size: " << solution.size() << std::endl;
+      //std::cout << "solution size: " << solution.size() << std::endl;
       if(solution.size()== 0){
           break;
       }
@@ -671,8 +706,45 @@ void make_offset(std::vector<std::vector<point>>& polygons_data, std::vector<std
       }
       offset_num -=0.4*accuracy;
       count +=1;
-      break;
+      //break;
   }
+}
 
 
+void make_gcode(std::vector<std::vector<point>>& polygons, std::ofstream& gcode_file)
+{
+  //一つのポリゴンを取得
+  for(int i=0; i < polygons.size(); i++)
+  {
+    //スタート点を設定
+    point start_point = polygons[i][0];
+    float marume = 4;
+
+    //スタート点への移動 押し出しなし
+    gcode_file << "G0" << " X" << round_n(start_point.x/accuracy, marume) << " Y" << round_n(start_point.y/accuracy, marume) << " Z" << round_n(start_point.z/accuracy, marume) << std::endl;
+    //ポリゴン内の点を取得
+    for(int j=1; j < polygons[i].size()+1; j++)
+    {
+      //距離の計算
+      if(j < polygons[i].size()){
+        float L = sqrt(pow((polygons[i][j].x - polygons[i][j-1].x)/accuracy,2) + pow((polygons[i][j].y - polygons[i][j-1].y)/accuracy ,2) + pow((polygons[i][j].z - polygons[i][j-1].z)/accuracy ,2) );
+        float E = nozzule * layer * L / pow(filament,2) ;
+        gcode_file << "G1" << " X" << round_n(polygons[i][j].x/accuracy, marume) << " Y" << round_n(polygons[i][j].y/accuracy, marume) << " Z" << round_n(polygons[i][j].z/accuracy, marume) << " E" << round_n(E, marume) << std::endl;
+      }else{
+        float L = sqrt(pow((polygons[i][j-1].x - start_point.x)/accuracy,2) + pow((polygons[i][j-1].y - start_point.y)/accuracy ,2) + pow((polygons[i][j-1].z - start_point.z)/accuracy ,2) );
+        float E = nozzule * layer * L / pow(filament,2) ;
+        gcode_file << "G1" << " X" << round_n(start_point.x/accuracy, marume) << " Y" << round_n(start_point.y/accuracy, marume) << " Z" << round_n(start_point.z/accuracy, marume) << " E" << round_n(E, marume) << std::endl;
+      }
+
+    }
+  }
+}
+
+
+float round_n(float number, float n)
+{
+    number = number * pow(10,n-1); //四捨五入したい値を10の(n-1)乗倍する。
+    number = round(number); //小数点以下を四捨五入する。
+    number /= pow(10, n-1); //10の(n-1)乗で割る。
+    return number;
 }
