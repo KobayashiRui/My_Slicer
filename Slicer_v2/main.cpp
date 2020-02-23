@@ -76,10 +76,9 @@ int main(int argc, char *argv[])
   std::vector<std::vector<std::vector<point>>> layer_polygons; //各レイヤのごとにポリゴンデータ格納す
   std::vector<std::vector<std::vector<point>>> layer_polygons_2; //各レイヤのごとにポリゴンデータ縮小処理済み
 
-  //TODO STLのサイズに合わせてルプ数を決定する
   std::vector<line> line_datas;
-  for(int i = 0; i < 1; i++){
-  //for(int i = 0; i < 1; i++){
+  for(int i=0; ; i++)
+  {
 
     std::cout << "Count: " << i << std::endl;
     //線分データをクリア
@@ -98,6 +97,11 @@ int main(int argc, char *argv[])
       count_make_line ++;
     }
     //std::cout << "END line" << std::endl;
+
+    //ラインが作れないので終了する
+    if(line_datas.size() == 0){
+      break;
+    }
 
     std::vector<point> polygon;
     std::vector<std::vector<point>> polygons;

@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/rui/Documents/GitHub/My_Slicer/Slicer_v2_arc/stl_read/stl_read.cpp
+sstream
+-
+streambuf
+-
+cassert
+-
+iostream
+-
+fstream
+-
+stl_read.h
+/Users/rui/Documents/GitHub/My_Slicer/Slicer_v2_arc/stl_read/stl_read.h
+
+/Users/rui/Documents/GitHub/My_Slicer/Slicer_v2_arc/stl_read/stl_read.h
+string
+-
+vector
+-
+
