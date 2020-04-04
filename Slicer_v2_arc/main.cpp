@@ -27,11 +27,24 @@ static int camera_move_sens = 3;
 static int cam_deg2_min = 1;
 static int cam_deg2_max = 160;
 
+
+static bool INFILL = false;//infillをON:true, OFF:false
+static bool ROTATION = true;//回転をON:true, 回転をOFF:false
+static bool EXPORT_GCODE = false; //gコードを出力する:true,出力しない:false
+
 //プリンタの設定
 static float nozzule = 0.4;
 //static float layer = 0.2;
-static float layer = 1 * 3.141592 / 180;
 static float filament = 1.75;
+static float flow_rate = 2.5;
+static float retraction = 1;
+static int move_speed = 3000;
+static int print_speed = 800;
+
+float arc = 34;   //半径25mmの円弧
+static float layer_rad = 1 * 3.141592 / 180;
+static float layer = arc*sin(layer_rad/2)*2;//TODO 円弧の長さ=>孤の両端を結ぶ線分の長さ
+
 
 void make_line(std::vector<line> &, plane, triangle);
 bool check_line(std::vector<line> &, line);
@@ -39,8 +52,8 @@ void make_polygon(std::vector<line> &, std::vector<point> &);
 void make_polygon2(std::vector<line> &, std::vector<point> &);
 void drawLine(std::vector<std::vector<point>>);
 void make_offset(std::vector<std::vector<point>> &, std::vector<std::vector<point>> &); //ポリゴンデータの配列, オフセット生成後のデータ
-void rotation_polygon(std::vector<std::vector<point>> &, std::vector<std::vector<point>> &, float); //ポリゴンデータの回転処理, 回転後のポリゴンデータ, 回転角度(rad)
-void make_gcode(std::vector<std::vector<point>> &, std::ofstream &);
+void rotation_polygon(int, std::vector<std::vector<point>> &, std::vector<std::vector<point>> &, float); //軸(x:0,y:1,z:2), ポリゴンデータの回転処理, 回転後のポリゴンデータ, 回転角度(rad)
+void make_gcode(std::vector<std::vector<point>> &, std::ofstream &, float&);
 void addPoint(int, int, ClipperLib::Path *);
 point float2int(point);
 float round_n(float, float);
@@ -54,12 +67,18 @@ bool flag = false;
 int main(int argc, char *argv[])
 {
   std::string stl_file_name;
+  std::string gcode_file_name;
 
-  if (argc == 2)
+  if(argc == 2){
+    stl_file_name = argv[1];
+    gcode_file_name = "test.gcode";
+  }
+  else if (argc == 3)
   {
     stl_file_name = argv[1];
+    gcode_file_name = argv[2];
   }
-  else if (argc > 2)
+  else if (argc > 3)
   {
     std::cout << "ERROR: Too many command line arguments" << std::endl;
   }
@@ -79,8 +98,8 @@ int main(int argc, char *argv[])
   std::vector<std::vector<std::vector<point>>> _layer_polygons;  //回転処理のバッファ用
   std::vector<std::vector<std::vector<point>>> layer_polygons_2; //各レイヤのごとにポリゴンデータ縮小処理済み
 
-  //TODO STLのサイズに合わせてルプ数を決定する
   std::vector<line> line_datas;
+
   for (int i = 0; ; i++)
   {
 
@@ -91,12 +110,15 @@ int main(int argc, char *argv[])
     //平面の定義
     std::cout << "Make Plane" << std::endl;
 
-    // 円弧の場合(x,z平面)
-    float arc = 25;   //半径25mmの円弧
-    float arc_x = 25; //円のX座標原点
+    
+    /*
+    ///////////////////////////////////
+    // 円弧の場合(x,z平面, 回転軸はy軸) //
+    //////////////////////////////////
+    float arc_x = arc; //円のX座標原点
     float arc_z = 0;  //円のZ座標原点
     // 交点(origin)の導出
-    point origin = point(-1 * arc * cos((i + 1) * layer) + arc_x, 0, arc * sin((i + 1) * layer) + arc_z);
+    point origin = point(-1 * arc * cos((i + 1) * layer_rad) + arc_x, 0, arc * sin((i + 1) * layer_rad) + arc_z);
     // ベクトルの算出(交点 => 原点)
     float x_vec = arc_x - origin.x;
     float z_vec = arc_z - origin.z;
@@ -105,6 +127,27 @@ int main(int argc, char *argv[])
 
     //接線方向のベクトルを定義
     point plane_normal = point(x, 0, z);
+    /////////////////////////////////////////ここまで
+    */
+
+   
+    ///////////////////////////////////
+    // 円弧の場合(y,z平面, 回転軸はx軸) //
+    //////////////////////////////////
+    // 交点(origin)の導出
+    float arc_y = arc; //円の中心のY座標
+    float arc_z = 0;  //円の中心のZ座標
+    point origin = point(0, -1 * arc * cos((i + 1) * layer_rad) + arc_y, arc * sin((i + 1) * layer_rad) + arc_z);
+    // ベクトルの算出(交点 => 原点)
+    float y_vec = arc_y - origin.y;
+    float z_vec = arc_z - origin.z;
+    float z = sqrt(1 / (1 + (pow(z_vec, 2) / pow(y_vec, 2))));
+    float y = -1 * z_vec * z / y_vec;
+
+    //接線方向のベクトルを定義
+    point plane_normal = point(0, y, z);
+    /////////////////////////////////////////ここまで
+    
 
     std::cout << "origin: " << origin.x << " " << origin.y << " " << origin.z << std::endl;
     std::cout << "plane: " << plane_normal.x << " " << plane_normal.y << " " << plane_normal.z << std::endl;
@@ -165,43 +208,60 @@ int main(int argc, char *argv[])
   //ポリゴンデータを入れるバッファてきな
   std::vector<std::vector<point>> polygons;
 
-  //layerデータを回転させる
-  std::cout << "Rotation" << std::endl;
-  for(int i=0; i < layer_polygons.size(); i++)
+
+  if(ROTATION)
   {
-    std::cout << "rotate :" << i << std::endl;
-    polygons.clear();
-    rotation_polygon(layer_polygons[i], polygons, -1*(i+1)*layer);
-    _layer_polygons.push_back(polygons);
+    //layerデータを回転させる
+    std::cout << "Rotation" << std::endl;
+    for(int i=0; i < layer_polygons.size(); i++)
+    {
+      std::cout << "rotate :" << i << std::endl;
+      polygons.clear();
+      //X軸周りに回転
+      rotation_polygon(0, layer_polygons[i], polygons, (i+1)*layer_rad); //x軸はマイナス, y軸はプラス
+      _layer_polygons.push_back(polygons);
+    }
+
+    layer_polygons = _layer_polygons;
   }
 
-  layer_polygons = _layer_polygons;
-  //ポリゴンの縮小
-  //std::vector<std::vector<point>> polygons;
-  for(int i=0; i < layer_polygons.size(); i++){
-    std::cout << "layer num: " << i << std::endl;
-    polygons.clear();
-    make_offset(layer_polygons[i], polygons);
-    layer_polygons_2.push_back(polygons);
+  if(INFILL)
+  {
+    //ポリゴンの縮小
+    //std::vector<std::vector<point>> polygons;
+    for(int i=0; i < layer_polygons.size(); i++){
+      std::cout << "layer num: " << i << std::endl;
+      polygons.clear();
+      make_offset(layer_polygons[i], polygons);
+      layer_polygons_2.push_back(polygons);
+    }
+  }else{
+    layer_polygons_2 = layer_polygons;
   }
 
-  //Gコードの生成
-  //最初のGコード
-  //プリント用のGコード
-  //レイヤーごとの処理
-  std::ofstream gcode_file;
-  std::string filename = "test_arc.gcode";
-  gcode_file.open(filename, std::ios::trunc);
-  for(int i=0; i < layer_polygons_2.size(); i++){
-    //軸を回転 (Aコード = 4軸目の回転)
-    gcode_file << "A" << -1*(i+1)*layer << std::endl;
-    make_gcode(layer_polygons_2[i], gcode_file);
+  if(EXPORT_GCODE)
+  {
+    //Gコードの生成
+    float Extruder = 0;
+    //最初のGコード
+    //プリント用のGコード
+    //レイヤーごとの処理
+    std::ofstream gcode_file;
+    //std::string filename = "test_arc.gcode";
+    gcode_file.open(gcode_file_name, std::ios::trunc);
+
+    gcode_file << "M83" << std::endl; //エクストルーダを相対モードに
+    for(int i=0; i < layer_polygons_2.size(); i++){
+      //軸を回転 (Aコード = 4軸目の回転)
+      gcode_file << "A" << (i+1)*layer_rad << std::endl;
+      make_gcode(layer_polygons_2[i], gcode_file, Extruder);
+    }
+    //最後のGコード
+
+    gcode_file.close();
+
+    std::cout << "Make Gcode" << std::endl;
   }
-  //最後のGコード
-
-  gcode_file.close();
-
-  std::cout << "Make Gcode" << std::endl;
 
   //openglにて表示
 
@@ -707,7 +767,8 @@ void drawLine(std::vector<std::vector<point>> polygons)
   {
     //for(int i =0; i < 3; i++){
     //一つのポリゴンを取得 polygons[i]
-    glColor3f(1.0, 0.5 * i, 0.1 * i / 2);
+    //glColor3f(1.0, 0.5 * i, 0.1 * i / 2);
+    glColor3f(1.0, 1.0, 1.0);
     glLineWidth(5);
     glBegin(GL_LINE_LOOP);
     //glBegin(GL_LINE_STRIP);
@@ -731,6 +792,8 @@ void addPoint(int x, int y, ClipperLib::Path *path)
   ip.Y = y;
   path->push_back(ip);
 }
+
+
 void make_offset(std::vector<std::vector<point>> &polygons_data, std::vector<std::vector<point>> &result_polygons_data)
 {
   ClipperLib::Paths subj, solution;
@@ -765,8 +828,9 @@ void make_offset(std::vector<std::vector<point>> &polygons_data, std::vector<std
     //std::cout << "面積: " << ClipperLib::Area(subj[i]) << std::endl;
   }
 
-  co.AddPaths(subj, ClipperLib::jtRound, ClipperLib::etClosedPolygon);
+  //co.AddPaths(subj, ClipperLib::jtRound, ClipperLib::etClosedPolygon);
   //co.AddPaths(subj, ClipperLib::jtSquare, ClipperLib::etClosedPolygon);
+  co.AddPaths(subj, ClipperLib::jtMiter, ClipperLib::etClosedPolygon);
   int offset_num = 0;
   int count = 0;
   while (true)
@@ -789,11 +853,14 @@ void make_offset(std::vector<std::vector<point>> &polygons_data, std::vector<std
     }
     offset_num -= 0.4 * accuracy;
     count += 1;
-    //break;
+
+    if(!INFILL){ 
+      break;
+    }
   }
 }
 
-void make_gcode(std::vector<std::vector<point>> &polygons, std::ofstream &gcode_file)
+void make_gcode(std::vector<std::vector<point>> &polygons, std::ofstream &gcode_file, float& E)
 {
   //一つのポリゴンを取得
   for (int i = 0; i < polygons.size(); i++)
@@ -802,9 +869,22 @@ void make_gcode(std::vector<std::vector<point>> &polygons, std::ofstream &gcode_
     point start_point = polygons[i][0];
     float marume = 4;
 
+    //リトラクション
+    if(retraction != 0)
+    {
+      gcode_file << "G1" << " E" << -1*retraction << std::endl;
+    }
     //スタート点への移動 押し出しなし
+    gcode_file << "G1" << " F" << move_speed << std::endl;
     gcode_file << "G0"
-               << " X" << round_n(start_point.x / accuracy, marume) << " Y" << round_n(start_point.y / accuracy, marume) << " Z" << round_n(start_point.z / accuracy, marume) << std::endl;
+               << " X" << round_n(start_point.x / accuracy, marume) << " Y" << round_n(start_point.y / accuracy, marume) << " Z" << round_n(start_point.z / accuracy, marume)  << std::endl;
+    gcode_file << "G1" << " F" << print_speed << std::endl;
+    //リトラクション分戻す
+    if(retraction != 0)
+    {
+      gcode_file << "G1" << " E" << retraction << std::endl;
+    }
+
     //ポリゴン内の点を取得
     for (int j = 1; j < polygons[i].size() + 1; j++)
     {
@@ -812,14 +892,17 @@ void make_gcode(std::vector<std::vector<point>> &polygons, std::ofstream &gcode_
       if (j < polygons[i].size())
       {
         float L = sqrt(pow((polygons[i][j].x - polygons[i][j - 1].x) / accuracy, 2) + pow((polygons[i][j].y - polygons[i][j - 1].y) / accuracy, 2) + pow((polygons[i][j].z - polygons[i][j - 1].z) / accuracy, 2));
-        float E = nozzule * layer * L / pow(filament, 2);
+        //E += (nozzule * layer * L * flow_rate) / pow(filament, 2);
+        E = (nozzule * layer * L * flow_rate) / pow(filament, 2);
+
         gcode_file << "G1"
                    << " X" << round_n(polygons[i][j].x / accuracy, marume) << " Y" << round_n(polygons[i][j].y / accuracy, marume) << " Z" << round_n(polygons[i][j].z / accuracy, marume) << " E" << round_n(E, marume) << std::endl;
       }
       else
       {
         float L = sqrt(pow((polygons[i][j - 1].x - start_point.x) / accuracy, 2) + pow((polygons[i][j - 1].y - start_point.y) / accuracy, 2) + pow((polygons[i][j - 1].z - start_point.z) / accuracy, 2));
-        float E = nozzule * layer * L / pow(filament, 2);
+        //E += (nozzule * layer * L * flow_rate) / pow(filament, 2);
+        E = (nozzule * layer * L * flow_rate) / pow(filament, 2);
         gcode_file << "G1"
                    << " X" << round_n(start_point.x / accuracy, marume) << " Y" << round_n(start_point.y / accuracy, marume) << " Z" << round_n(start_point.z / accuracy, marume) << " E" << round_n(E, marume) << std::endl;
       }
@@ -835,18 +918,30 @@ float round_n(float number, float n)
   return number;
 }
 
-void rotation_polygon(std::vector<std::vector<point>> & polygons_data, std::vector<std::vector<point>> & result_polygons_data, float rad_data)
+void rotation_polygon(int axis,std::vector<std::vector<point>> & polygons_data, std::vector<std::vector<point>> & result_polygons_data, float rad_data)
 {
+
   std::vector<point> polygon;
+  
   for(int i=0; i < polygons_data.size(); i++)
   {
     polygon.clear();
     for(int j=0;  j < polygons_data[i].size(); j++)
     {
       float x,y,z;
-      x = polygons_data[i][j].x*cos(rad_data) + polygons_data[i][j].z*sin(rad_data);
-      y = polygons_data[i][j].y;
-      z = -1*polygons_data[i][j].x*sin(rad_data) + polygons_data[i][j].z*cos(rad_data);
+      //x軸周りの回転
+      if(axis == 0)
+      {
+        x = polygons_data[i][j].x;
+        y = polygons_data[i][j].y*cos(rad_data) + -1*polygons_data[i][j].z*sin(rad_data);
+        z = polygons_data[i][j].y*sin(rad_data) + polygons_data[i][j].z*cos(rad_data);
+      }//y軸周りの回転
+      else if(axis == 1)
+      {
+        x = polygons_data[i][j].x*cos(rad_data) + polygons_data[i][j].z*sin(rad_data);
+        y = polygons_data[i][j].y;
+        z = -1*polygons_data[i][j].x*sin(rad_data) + polygons_data[i][j].z*cos(rad_data);
+      }
 
       polygon.push_back(point(x,y,z));
     }

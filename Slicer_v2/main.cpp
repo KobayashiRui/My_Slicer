@@ -8,6 +8,7 @@
 #include <cmath>
 #include <string>
 #include <sstream>
+#include <iomanip>
 
 #include <Eigen/Dense>
 
@@ -19,6 +20,7 @@
 #define m2mm 1e3
 #define line_diff 1e-6
 
+
 static GLFWwindow*  aWindow;
 static int          aWidth = 640;
 static int          aHeight = 480;
@@ -28,9 +30,12 @@ static int          camera_move_sens = 3;
 static int          cam_deg2_min = 1;
 static int          cam_deg2_max = 160;
 
+static bool INFILL = false;//infillをON:true, OFF:false
+static bool EXPORT_GCODE = false; //gコードを出力するか
+
 //プリンタの設定
 static float nozzule = 0.4;
-static float layer = 0.2;
+static float layer = 0.5;
 static float filament = 1.75;
 
 
@@ -41,7 +46,7 @@ void make_polygon(std::vector<line>&, std::vector<point>&);
 void make_polygon2(std::vector<line>&, std::vector<point>&);
 void drawLine(std::vector<std::vector<point>>);
 void make_offset(std::vector<std::vector<point>>&, std::vector<std::vector<point>>&); //ポリゴンデータの配列, オフセット生成後のデータ
-void make_gcode(std::vector<std::vector<point>>&, std::ofstream&); 
+void make_gcode(std::vector<std::vector<point>>&, std::ofstream&, float&); 
 void addPoint(int , int , ClipperLib::Path *);
 point float2int(point);
 float round_n(float, float);
@@ -55,10 +60,15 @@ bool flag = false;
 int main(int argc, char *argv[])
 {
   std::string stl_file_name;
+  std::string gcode_file_name;
 
   if (argc == 2) {
     stl_file_name = argv[1];
-  } else if (argc > 2) {
+    gcode_file_name = "test.gcode";
+  }else if(argc == 3){
+    stl_file_name = argv[1];
+    gcode_file_name = argv[2];
+  } else if (argc > 3) {
     std::cout << "ERROR: Too many command line arguments" << std::endl;
   } else {
     std::cout << "ERROR" << std::endl;
@@ -77,6 +87,7 @@ int main(int argc, char *argv[])
   std::vector<std::vector<std::vector<point>>> layer_polygons_2; //各レイヤのごとにポリゴンデータ縮小処理済み
 
   std::vector<line> line_datas;
+
   for(int i=0; ; i++)
   {
 
@@ -142,21 +153,27 @@ int main(int argc, char *argv[])
     layer_polygons_2.push_back(polygons);
   }
 
-  //Gコードの生成
-  //最初のGコード
-  //プリント用のGコード
-  //レイヤーごとの処理
-  std::ofstream gcode_file;
-  std::string filename = "test.gcode";
-  gcode_file.open(filename, std::ios::trunc);
-  for(int i=0; i < layer_polygons_2.size(); i++){
-    make_gcode(layer_polygons_2[i], gcode_file);
+  if(EXPORT_GCODE)
+  {
+    //Gコードの生成
+    float Extruder=0;
+    //最初のGコード
+    //プリント用のGコード
+    //レイヤーごとの処理
+    std::ofstream gcode_file;
+    gcode_file.open(gcode_file_name, std::ios::trunc);
+    gcode_file << std::fixed;
+    gcode_file << std::setprecision(5);
+    for(int i=0; i < layer_polygons_2.size(); i++){
+      make_gcode(layer_polygons_2[i], gcode_file, Extruder);
+    }
+    //最後のGコード
+
+    gcode_file.close();
+
+    std::cout << "Make Gcode" << std::endl;
+
   }
-  //最後のGコード
-
-  gcode_file.close();
-
-  std::cout << "Make Gcode" << std::endl;
 
 
 
@@ -631,7 +648,8 @@ void drawLine(std::vector<std::vector<point>> polygons)
   for(int i =0; i < polygons.size(); i++){
   //for(int i =0; i < 3; i++){
     //一つのポリゴンを取得 polygons[i]
-    glColor3f(1.0, 0.5*i, 0.1*i/2);
+    //glColor3f(1.0, 0.5*i, 0.1*i/2);
+    glColor3f(1.0, 1.0, 1.0);
     glLineWidth(5);
     glBegin(GL_LINE_LOOP);
     //glBegin(GL_LINE_STRIP);
@@ -688,8 +706,8 @@ void make_offset(std::vector<std::vector<point>>& polygons_data, std::vector<std
     //std::cout << "面積: " << ClipperLib::Area(subj[i]) << std::endl;
   }
 
-  co.AddPaths(subj, ClipperLib::jtRound, ClipperLib::etClosedPolygon);
-  //co.AddPaths(subj, ClipperLib::jtSquare, ClipperLib::etClosedPolygon);
+  //co.AddPaths(subj, ClipperLib::jtRound, ClipperLib::etClosedPolygon);
+  co.AddPaths(subj, ClipperLib::jtMiter, ClipperLib::etClosedPolygon);
   int offset_num = 0;
   int count = 0;
   while(true)
@@ -710,19 +728,22 @@ void make_offset(std::vector<std::vector<point>>& polygons_data, std::vector<std
       }
       offset_num -=0.4*accuracy;
       count +=1;
-      //break;
+      //インフィルがいらない場合
+      if(!INFILL){ 
+        break;
+      }
   }
 }
 
 
-void make_gcode(std::vector<std::vector<point>>& polygons, std::ofstream& gcode_file)
+void make_gcode(std::vector<std::vector<point>>& polygons, std::ofstream& gcode_file, float& E)
 {
   //一つのポリゴンを取得
   for(int i=0; i < polygons.size(); i++)
   {
     //スタート点を設定
     point start_point = polygons[i][0];
-    float marume = 4;
+    float marume = 6;
 
     //スタート点への移動 押し出しなし
     gcode_file << "G0" << " X" << round_n(start_point.x/accuracy, marume) << " Y" << round_n(start_point.y/accuracy, marume) << " Z" << round_n(start_point.z/accuracy, marume) << std::endl;
@@ -732,11 +753,11 @@ void make_gcode(std::vector<std::vector<point>>& polygons, std::ofstream& gcode_
       //距離の計算
       if(j < polygons[i].size()){
         float L = sqrt(pow((polygons[i][j].x - polygons[i][j-1].x)/accuracy,2) + pow((polygons[i][j].y - polygons[i][j-1].y)/accuracy ,2) + pow((polygons[i][j].z - polygons[i][j-1].z)/accuracy ,2) );
-        float E = nozzule * layer * L / pow(filament,2) ;
+        E += nozzule * layer * L / pow(filament,2) ;
         gcode_file << "G1" << " X" << round_n(polygons[i][j].x/accuracy, marume) << " Y" << round_n(polygons[i][j].y/accuracy, marume) << " Z" << round_n(polygons[i][j].z/accuracy, marume) << " E" << round_n(E, marume) << std::endl;
       }else{
         float L = sqrt(pow((polygons[i][j-1].x - start_point.x)/accuracy,2) + pow((polygons[i][j-1].y - start_point.y)/accuracy ,2) + pow((polygons[i][j-1].z - start_point.z)/accuracy ,2) );
-        float E = nozzule * layer * L / pow(filament,2) ;
+        E += nozzule * layer * L / pow(filament,2) ;
         gcode_file << "G1" << " X" << round_n(start_point.x/accuracy, marume) << " Y" << round_n(start_point.y/accuracy, marume) << " Z" << round_n(start_point.z/accuracy, marume) << " E" << round_n(E, marume) << std::endl;
       }
 
@@ -747,7 +768,7 @@ void make_gcode(std::vector<std::vector<point>>& polygons, std::ofstream& gcode_
 
 float round_n(float number, float n)
 {
-    number = number * pow(10,n-1); //四捨五入したい値を10の(n-1)乗倍する。
+    number = number * pow(10,n-1) + 0.5; //四捨五入したい値を10の(n-1)乗倍する。
     number = round(number); //小数点以下を四捨五入する。
     number /= pow(10, n-1); //10の(n-1)乗で割る。
     return number;
