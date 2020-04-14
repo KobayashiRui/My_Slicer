@@ -1,4 +1,4 @@
-# Install script for directory: /Users/rui/Documents/GitHub/My_Slicer/Slicer_v2
+# Install script for directory: /Users/rui/Documents/GitHub/My_Slicer/Slicer
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,7 +34,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/Users/rui/Documents/GitHub/My_Slicer/Slicer_v2/build/stl_read/cmake_install.cmake")
+  include("/Users/rui/Documents/GitHub/My_Slicer/Slicer/build/stl_read/cmake_install.cmake")
 
 endif()
 
@@ -46,5 +46,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/rui/Documents/GitHub/My_Slicer/Slicer_v2/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/rui/Documents/GitHub/My_Slicer/Slicer/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

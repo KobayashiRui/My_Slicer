@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/rui/Documents/GitHub/My_Slicer/Slicer_v2/main.cpp" "/Users/rui/Documents/GitHub/My_Slicer/Slicer_v2/build/CMakeFiles/Slicer.dir/main.cpp.o"
+  "/Users/rui/Documents/GitHub/My_Slicer/Slicer/main.cpp" "/Users/rui/Documents/GitHub/My_Slicer/Slicer/build/CMakeFiles/Slicer.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 
@@ -18,7 +18,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/Users/rui/Documents/GitHub/My_Slicer/Slicer_v2/build/stl_read/CMakeFiles/stl_read.dir/DependInfo.cmake"
+  "/Users/rui/Documents/GitHub/My_Slicer/Slicer/build/stl_read/CMakeFiles/stl_read.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

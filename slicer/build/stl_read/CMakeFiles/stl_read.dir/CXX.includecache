@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/Users/rui/Documents/GitHub/My_Slicer/Slicer_v2/stl_read/stl_read.cpp
+/Users/rui/Documents/GitHub/My_Slicer/Slicer/stl_read/stl_read.cpp
 sstream
 -
 streambuf
@@ -18,9 +18,9 @@ iostream
 fstream
 -
 stl_read.h
-/Users/rui/Documents/GitHub/My_Slicer/Slicer_v2/stl_read/stl_read.h
+/Users/rui/Documents/GitHub/My_Slicer/Slicer/stl_read/stl_read.h
 
-/Users/rui/Documents/GitHub/My_Slicer/Slicer_v2/stl_read/stl_read.h
+/Users/rui/Documents/GitHub/My_Slicer/Slicer/stl_read/stl_read.h
 string
 -
 vector

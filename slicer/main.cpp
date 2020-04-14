@@ -29,6 +29,7 @@ static int          camera_move_dead = 1;
 static int          camera_move_sens = 3;
 static int          cam_deg2_min = 1;
 static int          cam_deg2_max = 160;
+static int          WALL_THICKNESS = 3;
 
 static bool INFILL = true;//infillをON:true, OFF:false
 static bool EXPORT_GCODE = true; //gコードを出力するか
@@ -48,6 +49,9 @@ void drawLine(std::vector<std::vector<point>>);
 void make_offset(std::vector<std::vector<point>>&, std::vector<std::vector<point>>&); //ポリゴンデータの配列, オフセット生成後のデータ
 void make_gcode(std::vector<std::vector<point>>&, std::ofstream&, float&); 
 void addPoint(int , int , ClipperLib::Path *);
+void search_start_point(ClipperLib::Path &, int *, int &);
+void sort_polygon(ClipperLib::Path &, ClipperLib::Path &, int & , int *); //solutioポリゴン, sortedポリゴン, start idex, start point
+
 point float2int(point);
 float round_n(float, float);
 
@@ -88,7 +92,7 @@ int main(int argc, char *argv[])
 
   std::vector<line> line_datas;
 
-  for(int i=0; ; i++)
+  for(int i=0; i < 10 ; i++)
   {
 
     std::cout << "Count: " << i << std::endl;
@@ -96,7 +100,7 @@ int main(int argc, char *argv[])
     line_datas.clear();
 
     //平面の定義
-    point origin = point(0, 0, (i+1 )* layer);
+    point origin = point(0, 0, (i+0 )* layer);
     point plane_normal = point(0, 0, 1);
     plane slice_plane = plane(origin, plane_normal);
 
@@ -118,8 +122,8 @@ int main(int argc, char *argv[])
     std::vector<std::vector<point>> polygons;
 
     //line segumentの並びかえ
-    //TODO x,yの最小を最初に選択するようにする?
     //line_datasがなくなるまでループする
+    //一周分のポリゴンを取得する
     while(true){
       //polygon内の要素を全て削除
       //std::cout << "line_size " << line_datas.size() << std::endl;
@@ -144,7 +148,8 @@ int main(int argc, char *argv[])
   }
   std::cout << "END slice!!" <<std::endl;
 
-  //ポリゴンの縮小
+  //ポリゴンの縮小(ウォールの生成)
+  //ここで初めて実際にプリントするパスが作られるのでここで経路の最適化をする!
   std::vector<std::vector<point>> polygons;
   for(int i=0; i < layer_polygons.size(); i++){
     std::cout << "layer num: " << i << std::endl;
@@ -541,6 +546,8 @@ void make_polygon2(std::vector<line>&line_datas, std::vector<point>&polygon)
   bool end_flag = false;
   point search_p = line_datas[0].p1;
   point goal_p = line_datas[0].p2;
+  //スタート位置の探索
+
   //先頭のlineデータを削除
   polygon.push_back(search_p);
   line_datas.erase(line_datas.begin());
@@ -674,7 +681,7 @@ void addPoint(int x, int y, ClipperLib::Path *path)
 }
 void make_offset(std::vector<std::vector<point>>& polygons_data, std::vector<std::vector<point>>& result_polygons_data)
 {
-  ClipperLib::Paths subj,solution;
+  ClipperLib::Paths subj,solution,solution_opt;
   ClipperLib::Path p;
   std::vector<point> polygon;
   ClipperLib::ClipperOffset co;
@@ -710,16 +717,36 @@ void make_offset(std::vector<std::vector<point>>& polygons_data, std::vector<std
   co.AddPaths(subj, ClipperLib::jtMiter, ClipperLib::etClosedPolygon);
   int offset_num = 0;
   int count = 0;
-  while(true)
+  int start_point[] = {0,0}; //開始地点
+  ClipperLib::Path solution_buf;
+  //while(true)
+  for(int i=0; i < WALL_THICKNESS; i++)
   {
     //std::cout << "Count :" << count << std::endl;
       co.Execute(solution, offset_num);
+      solution_opt.clear();
       //std::cout << "solution size: " << solution.size() << std::endl;
       if(solution.size()== 0){
           break;
       }
-      std::cout << "####solution####" << std::endl;
-      std::cout << solution[0] << std::endl;
+
+      //#########経路の最適化###########################
+      //start_posに一番近い地点を求める
+      for(int i=0; i < solution.size(); i++){
+        int polygon_start_index = 0;
+        std::cout << "start_point :: " << start_point[0] << ", " << start_point[1] << std::endl;
+        search_start_point(solution[i], start_point, polygon_start_index);
+        std::cout << "polygon start index :: " << polygon_start_index << std::endl;
+        //順番を入れ替える
+        solution_buf.clear();
+        sort_polygon(solution[i], solution_buf, polygon_start_index, start_point);
+        solution_opt.push_back(solution_buf);
+      }
+
+      solution = solution_opt;
+      //solution_opt.reserve(solution.size()); //solutionのサイズ分メモリを確保
+
+
       for(int i=0; i < solution.size(); i++){
         polygon.clear();
         for(int j=0; j< solution[i].size(); j++)
@@ -735,6 +762,30 @@ void make_offset(std::vector<std::vector<point>>& polygons_data, std::vector<std
         break;
       }
   }
+}
+
+
+void search_start_point(ClipperLib::Path &path, int * start_point, int &polygon_start_index){
+  int most_small = sqrt(pow(path[0].X - start_point[0],2) + pow(path[0].Y - start_point[1],2) );;
+  for(int i=0; i < path.size(); i++){
+    float result = sqrt(pow(path[i].X - start_point[0],2) + pow(path[i].Y - start_point[1],2));
+    if(most_small > result ) {
+      most_small = result;
+      polygon_start_index = i;
+    }
+  }
+}
+
+//solutioポリゴン, sortedポリゴン, start idex, start point
+void sort_polygon(ClipperLib::Path &solution_path, ClipperLib::Path &sorted_path, int &start_index, int *start_point){
+  for(int i = start_index; i < solution_path.size(); i++){
+    sorted_path.push_back(solution_path[i]);
+  }
+  for(int i =0; i < start_index; i++){
+    sorted_path.push_back(solution_path[i]);
+  }
+  start_point[0] = solution_path[start_index].X;
+  start_point[1] = solution_path[start_index].Y;
 }
 
 
@@ -766,6 +817,7 @@ void make_gcode(std::vector<std::vector<point>>& polygons, std::ofstream& gcode_
     }
   }
 }
+
 
 
 float round_n(float number, float n)

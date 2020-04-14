@@ -3,8 +3,8 @@
 
 CMakeFiles/Slicer.dir/main.cpp.o
  ../stl_read/stl_read.h
- /Users/rui/Documents/GitHub/My_Slicer/Slicer_v2/main.cpp
- /Users/rui/Documents/GitHub/My_Slicer/Slicer_v2/slice_data.h
+ /Users/rui/Documents/GitHub/My_Slicer/Slicer/main.cpp
+ /Users/rui/Documents/GitHub/My_Slicer/Slicer/slice_data.h
  /usr/local/Cellar/eigen/3.3.7/include/eigen3/Eigen/Cholesky
  /usr/local/Cellar/eigen/3.3.7/include/eigen3/Eigen/Core
  /usr/local/Cellar/eigen/3.3.7/include/eigen3/Eigen/Dense

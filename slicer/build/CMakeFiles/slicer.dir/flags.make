@@ -6,5 +6,5 @@ CXX_FLAGS =  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacO
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/usr/local/include -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks -I/Users/rui/Documents/GitHub/My_Slicer/Slicer_v2/./stl_read -I/usr/local/Cellar/eigen/3.3.7/include/eigen3 
+CXX_INCLUDES = -I/usr/local/include -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks -I/Users/rui/Documents/GitHub/My_Slicer/Slicer/./stl_read -I/usr/local/Cellar/eigen/3.3.7/include/eigen3 
 

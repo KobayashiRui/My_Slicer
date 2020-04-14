@@ -48,10 +48,10 @@ RM = /usr/local/Cellar/cmake/3.16.2/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/rui/Documents/GitHub/My_Slicer/Slicer_v2
+CMAKE_SOURCE_DIR = /Users/rui/Documents/GitHub/My_Slicer/Slicer
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/rui/Documents/GitHub/My_Slicer/Slicer_v2/build
+CMAKE_BINARY_DIR = /Users/rui/Documents/GitHub/My_Slicer/Slicer/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,14 +80,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /Users/rui/Documents/GitHub/My_Slicer/Slicer_v2/build && $(CMAKE_COMMAND) -E cmake_progress_start /Users/rui/Documents/GitHub/My_Slicer/Slicer_v2/build/CMakeFiles /Users/rui/Documents/GitHub/My_Slicer/Slicer_v2/build/stl_read/CMakeFiles/progress.marks
-	cd /Users/rui/Documents/GitHub/My_Slicer/Slicer_v2/build && $(MAKE) -f CMakeFiles/Makefile2 stl_read/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/rui/Documents/GitHub/My_Slicer/Slicer_v2/build/CMakeFiles 0
+	cd /Users/rui/Documents/GitHub/My_Slicer/Slicer/build && $(CMAKE_COMMAND) -E cmake_progress_start /Users/rui/Documents/GitHub/My_Slicer/Slicer/build/CMakeFiles /Users/rui/Documents/GitHub/My_Slicer/Slicer/build/stl_read/CMakeFiles/progress.marks
+	cd /Users/rui/Documents/GitHub/My_Slicer/Slicer/build && $(MAKE) -f CMakeFiles/Makefile2 stl_read/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/rui/Documents/GitHub/My_Slicer/Slicer/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /Users/rui/Documents/GitHub/My_Slicer/Slicer_v2/build && $(MAKE) -f CMakeFiles/Makefile2 stl_read/clean
+	cd /Users/rui/Documents/GitHub/My_Slicer/Slicer/build && $(MAKE) -f CMakeFiles/Makefile2 stl_read/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,22 +97,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /Users/rui/Documents/GitHub/My_Slicer/Slicer_v2/build && $(MAKE) -f CMakeFiles/Makefile2 stl_read/preinstall
+	cd /Users/rui/Documents/GitHub/My_Slicer/Slicer/build && $(MAKE) -f CMakeFiles/Makefile2 stl_read/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /Users/rui/Documents/GitHub/My_Slicer/Slicer_v2/build && $(MAKE) -f CMakeFiles/Makefile2 stl_read/preinstall
+	cd /Users/rui/Documents/GitHub/My_Slicer/Slicer/build && $(MAKE) -f CMakeFiles/Makefile2 stl_read/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /Users/rui/Documents/GitHub/My_Slicer/Slicer_v2/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /Users/rui/Documents/GitHub/My_Slicer/Slicer/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 stl_read/CMakeFiles/stl_read.dir/rule:
-	cd /Users/rui/Documents/GitHub/My_Slicer/Slicer_v2/build && $(MAKE) -f CMakeFiles/Makefile2 stl_read/CMakeFiles/stl_read.dir/rule
+	cd /Users/rui/Documents/GitHub/My_Slicer/Slicer/build && $(MAKE) -f CMakeFiles/Makefile2 stl_read/CMakeFiles/stl_read.dir/rule
 .PHONY : stl_read/CMakeFiles/stl_read.dir/rule
 
 # Convenience name for target.
@@ -122,7 +122,7 @@ stl_read: stl_read/CMakeFiles/stl_read.dir/rule
 
 # fast build rule for target.
 stl_read/fast:
-	cd /Users/rui/Documents/GitHub/My_Slicer/Slicer_v2/build && $(MAKE) -f stl_read/CMakeFiles/stl_read.dir/build.make stl_read/CMakeFiles/stl_read.dir/build
+	cd /Users/rui/Documents/GitHub/My_Slicer/Slicer/build && $(MAKE) -f stl_read/CMakeFiles/stl_read.dir/build.make stl_read/CMakeFiles/stl_read.dir/build
 .PHONY : stl_read/fast
 
 stl_read.o: stl_read.cpp.o
@@ -131,7 +131,7 @@ stl_read.o: stl_read.cpp.o
 
 # target to build an object file
 stl_read.cpp.o:
-	cd /Users/rui/Documents/GitHub/My_Slicer/Slicer_v2/build && $(MAKE) -f stl_read/CMakeFiles/stl_read.dir/build.make stl_read/CMakeFiles/stl_read.dir/stl_read.cpp.o
+	cd /Users/rui/Documents/GitHub/My_Slicer/Slicer/build && $(MAKE) -f stl_read/CMakeFiles/stl_read.dir/build.make stl_read/CMakeFiles/stl_read.dir/stl_read.cpp.o
 .PHONY : stl_read.cpp.o
 
 stl_read.i: stl_read.cpp.i
@@ -140,7 +140,7 @@ stl_read.i: stl_read.cpp.i
 
 # target to preprocess a source file
 stl_read.cpp.i:
-	cd /Users/rui/Documents/GitHub/My_Slicer/Slicer_v2/build && $(MAKE) -f stl_read/CMakeFiles/stl_read.dir/build.make stl_read/CMakeFiles/stl_read.dir/stl_read.cpp.i
+	cd /Users/rui/Documents/GitHub/My_Slicer/Slicer/build && $(MAKE) -f stl_read/CMakeFiles/stl_read.dir/build.make stl_read/CMakeFiles/stl_read.dir/stl_read.cpp.i
 .PHONY : stl_read.cpp.i
 
 stl_read.s: stl_read.cpp.s
@@ -149,7 +149,7 @@ stl_read.s: stl_read.cpp.s
 
 # target to generate assembly for a file
 stl_read.cpp.s:
-	cd /Users/rui/Documents/GitHub/My_Slicer/Slicer_v2/build && $(MAKE) -f stl_read/CMakeFiles/stl_read.dir/build.make stl_read/CMakeFiles/stl_read.dir/stl_read.cpp.s
+	cd /Users/rui/Documents/GitHub/My_Slicer/Slicer/build && $(MAKE) -f stl_read/CMakeFiles/stl_read.dir/build.make stl_read/CMakeFiles/stl_read.dir/stl_read.cpp.s
 .PHONY : stl_read.cpp.s
 
 # Help Target
@@ -175,6 +175,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /Users/rui/Documents/GitHub/My_Slicer/Slicer_v2/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /Users/rui/Documents/GitHub/My_Slicer/Slicer/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 
