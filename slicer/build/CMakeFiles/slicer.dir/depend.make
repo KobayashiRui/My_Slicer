@@ -212,4 +212,5 @@ CMakeFiles/Slicer.dir/main.cpp.o: /usr/local/Cellar/eigen/3.3.7/include/eigen3/E
 CMakeFiles/Slicer.dir/main.cpp.o: /usr/local/Cellar/eigen/3.3.7/include/eigen3/Eigen/src/plugins/MatrixCwiseBinaryOps.h
 CMakeFiles/Slicer.dir/main.cpp.o: /usr/local/Cellar/eigen/3.3.7/include/eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h
 CMakeFiles/Slicer.dir/main.cpp.o: /usr/local/include/GLFW/glfw3.h
+CMakeFiles/Slicer.dir/main.cpp.o: /usr/local/include/polyclipping/clipper.hpp
 

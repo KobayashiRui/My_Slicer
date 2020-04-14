@@ -16,6 +16,7 @@ add_subdirectory(./stl_read)
 add_executable(Slicer main.cpp)
 #target_link_libraries(slicer /Users/rui/Documents/GitHub/My_Slicer/stl_read/build/libstl_read_static.a)
 target_link_libraries(Slicer stl_read)
+target_link_libraries(Slicer polyclipping)
 target_link_libraries(Slicer glfw)
 target_link_libraries(Slicer ${OPENGL_LIBRARIES} )
 

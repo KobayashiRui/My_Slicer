@@ -44,10 +44,10 @@ RM = /usr/local/Cellar/cmake/3.16.2/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/rui/Documents/GitHub/My_Slicer/Slicer
+CMAKE_SOURCE_DIR = /Users/rui/Documents/GitHub/My_Slicer/Slicer_v2
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/rui/Documents/GitHub/My_Slicer/Slicer/build
+CMAKE_BINARY_DIR = /Users/rui/Documents/GitHub/My_Slicer/Slicer_v2/build
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -94,14 +94,14 @@ stl_read/clean: stl_read/CMakeFiles/stl_read.dir/clean
 CMakeFiles/Slicer.dir/all: stl_read/CMakeFiles/stl_read.dir/all
 	$(MAKE) -f CMakeFiles/Slicer.dir/build.make CMakeFiles/Slicer.dir/depend
 	$(MAKE) -f CMakeFiles/Slicer.dir/build.make CMakeFiles/Slicer.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/rui/Documents/GitHub/My_Slicer/Slicer/build/CMakeFiles --progress-num=1,2 "Built target Slicer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/rui/Documents/GitHub/My_Slicer/Slicer_v2/build/CMakeFiles --progress-num=1,2 "Built target Slicer"
 .PHONY : CMakeFiles/Slicer.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Slicer.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/rui/Documents/GitHub/My_Slicer/Slicer/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/rui/Documents/GitHub/My_Slicer/Slicer_v2/build/CMakeFiles 4
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Slicer.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/rui/Documents/GitHub/My_Slicer/Slicer/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/rui/Documents/GitHub/My_Slicer/Slicer_v2/build/CMakeFiles 0
 .PHONY : CMakeFiles/Slicer.dir/rule
 
 # Convenience name for target.
@@ -121,14 +121,14 @@ CMakeFiles/Slicer.dir/clean:
 stl_read/CMakeFiles/stl_read.dir/all:
 	$(MAKE) -f stl_read/CMakeFiles/stl_read.dir/build.make stl_read/CMakeFiles/stl_read.dir/depend
 	$(MAKE) -f stl_read/CMakeFiles/stl_read.dir/build.make stl_read/CMakeFiles/stl_read.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/rui/Documents/GitHub/My_Slicer/Slicer/build/CMakeFiles --progress-num=3,4 "Built target stl_read"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/rui/Documents/GitHub/My_Slicer/Slicer_v2/build/CMakeFiles --progress-num=3,4 "Built target stl_read"
 .PHONY : stl_read/CMakeFiles/stl_read.dir/all
 
 # Build rule for subdir invocation for target.
 stl_read/CMakeFiles/stl_read.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/rui/Documents/GitHub/My_Slicer/Slicer/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/rui/Documents/GitHub/My_Slicer/Slicer_v2/build/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 stl_read/CMakeFiles/stl_read.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/rui/Documents/GitHub/My_Slicer/Slicer/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/rui/Documents/GitHub/My_Slicer/Slicer_v2/build/CMakeFiles 0
 .PHONY : stl_read/CMakeFiles/stl_read.dir/rule
 
 # Convenience name for target.

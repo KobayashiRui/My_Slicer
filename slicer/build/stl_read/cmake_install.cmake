@@ -1,4 +1,4 @@
-# Install script for directory: /Users/rui/Documents/GitHub/My_Slicer/Slicer/stl_read
+# Install script for directory: /Users/rui/Documents/GitHub/My_Slicer/Slicer_v2/stl_read
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

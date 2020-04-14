@@ -13,6 +13,15 @@
     point(float xp, float yp, float zp) : x(xp), y(yp), z(zp) {}
   };
 
+  struct point_i {
+    int x;
+    int y;
+    int z;
+
+    point_i() : x(0), y(0), z(0) {}
+    point_i(int xp, int yp, int zp) : x(xp), y(yp), z(zp) {}
+  };
+
   struct triangle {
     point normal;
     point v1;

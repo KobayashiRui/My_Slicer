@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/rui/Documents/GitHub/My_Slicer/Slicer/stl_read/stl_read.cpp" "/Users/rui/Documents/GitHub/My_Slicer/Slicer/build/stl_read/CMakeFiles/stl_read.dir/stl_read.cpp.o"
+  "/Users/rui/Documents/GitHub/My_Slicer/Slicer_v2/stl_read/stl_read.cpp" "/Users/rui/Documents/GitHub/My_Slicer/Slicer_v2/build/stl_read/CMakeFiles/stl_read.dir/stl_read.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 

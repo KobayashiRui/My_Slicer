@@ -12,10 +12,14 @@ string
 vector
 -
 
-/Users/rui/Documents/GitHub/My_Slicer/Slicer/main.cpp
+/Users/rui/Documents/GitHub/My_Slicer/Slicer_v2/main.cpp
 GLFW/glfw3.h
 -
+polyclipping/clipper.hpp
+/Users/rui/Documents/GitHub/My_Slicer/Slicer_v2/polyclipping/clipper.hpp
 iostream
+-
+fstream
 -
 cassert
 -
@@ -23,16 +27,22 @@ vector
 -
 cmath
 -
+string
+-
+sstream
+-
+iomanip
+-
 Eigen/Dense
 -
 stl_read.h
-/Users/rui/Documents/GitHub/My_Slicer/Slicer/stl_read.h
+/Users/rui/Documents/GitHub/My_Slicer/Slicer_v2/stl_read.h
 slice_data.h
-/Users/rui/Documents/GitHub/My_Slicer/Slicer/slice_data.h
+/Users/rui/Documents/GitHub/My_Slicer/Slicer_v2/slice_data.h
 
-/Users/rui/Documents/GitHub/My_Slicer/Slicer/slice_data.h
+/Users/rui/Documents/GitHub/My_Slicer/Slicer_v2/slice_data.h
 stl_read.h
-/Users/rui/Documents/GitHub/My_Slicer/Slicer/stl_read.h
+/Users/rui/Documents/GitHub/My_Slicer/Slicer_v2/stl_read.h
 
 /usr/local/Cellar/eigen/3.3.7/include/eigen3/Eigen/Cholesky
 Core
@@ -1122,5 +1132,25 @@ GL/gl.h
 GL/glext.h
 -
 GL/glu.h
+-
+
+/usr/local/include/polyclipping/clipper.hpp
+vector
+-
+list
+-
+set
+-
+stdexcept
+-
+cstring
+-
+cstdlib
+-
+ostream
+-
+functional
+-
+queue
 -
 

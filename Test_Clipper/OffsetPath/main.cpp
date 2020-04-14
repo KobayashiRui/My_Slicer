@@ -33,11 +33,10 @@ int main()
     //addPoint(500,100, &p);
     //addPoint(500,500, &p);
     //addPoint(100,500, &p);
+    addPoint(100,0, &p);
     addPoint(0,0, &p);
     addPoint(0,100, &p);
-    addPoint(50,150, &p);
     addPoint(100,100, &p);
-    addPoint(100,0, &p);
     subj.push_back(p);
     
     ClipperOffset co;
@@ -50,6 +49,7 @@ int main()
             break;
         }
         for(int i=0; i < solution.size(); i++){
+            std::cout << solution << std::endl;
             solutions.push_back(solution[i]);
         }
         offset_num -=5;
