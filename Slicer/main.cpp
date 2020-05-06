@@ -679,6 +679,7 @@ void addPoint(int x, int y, ClipperLib::Path *path)
     ip.Y = y;
     path->push_back(ip);
 }
+
 void make_offset(std::vector<std::vector<point>>& polygons_data, std::vector<std::vector<point>>& result_polygons_data)
 {
   ClipperLib::Paths subj,solution,solution_opt;

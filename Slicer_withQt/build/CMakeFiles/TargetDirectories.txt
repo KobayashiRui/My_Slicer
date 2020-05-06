@@ -1,0 +1,4 @@
+/Users/rui/Documents/GitHub/My_Slicer/Slicer_withQt/build/CMakeFiles/rebuild_cache.dir
+/Users/rui/Documents/GitHub/My_Slicer/Slicer_withQt/build/CMakeFiles/edit_cache.dir
+/Users/rui/Documents/GitHub/My_Slicer/Slicer_withQt/build/CMakeFiles/Slicer.dir
+/Users/rui/Documents/GitHub/My_Slicer/Slicer_withQt/build/CMakeFiles/Slicer_autogen.dir
