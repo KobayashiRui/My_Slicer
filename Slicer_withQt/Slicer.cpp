@@ -1,3 +1,6 @@
+/*
+ *qmlとスライサの兼ね合い関連
+*/
 #include "Slicer.h"
 #include <iostream>
 #include <Qt3DRender/QGeometry>

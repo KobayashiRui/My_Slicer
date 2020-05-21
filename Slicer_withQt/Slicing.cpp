@@ -1,3 +1,6 @@
+/*
+ * スライサーの処理部分
+*/
 #include "polyclipping/clipper.hpp"
 #include <iostream>
 #include <fstream>

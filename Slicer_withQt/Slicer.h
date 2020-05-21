@@ -1,3 +1,6 @@
+/*
+ *qmlとスライサの兼ね合い関連
+*/
 #include <QDateTime>
 #include <QObject>
 #include <QString>

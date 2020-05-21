@@ -1,3 +1,6 @@
+/*
+ *Slicingで使用するデータ構造
+*/
 #ifndef SLICE_DATA_H
 #define SLICE_DATA_H
 
