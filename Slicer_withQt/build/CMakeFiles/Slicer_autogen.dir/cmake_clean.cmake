@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
+  "Slicer_autogen"
+  "CMakeFiles/Slicer_autogen.dir/AutogenOldSettings.cmake"
   "CMakeFiles/Slicer_autogen"
-  "Slicer_autogen/mocs_compilation.cpp"
 )
 
 # Per-language clean rules from dependency scanning.

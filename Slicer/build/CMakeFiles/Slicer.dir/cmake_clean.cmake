@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/Slicer.dir/main.cpp.o"
-  "Slicer"
   "Slicer.pdb"
+  "Slicer"
 )
 
 # Per-language clean rules from dependency scanning.

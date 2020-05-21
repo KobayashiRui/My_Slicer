@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/stl_read.dir/stl_read.cpp.o"
-  "libstl_read.dylib"
   "libstl_read.pdb"
+  "libstl_read.so"
 )
 
 # Per-language clean rules from dependency scanning.

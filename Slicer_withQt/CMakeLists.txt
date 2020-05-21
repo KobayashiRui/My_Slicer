@@ -23,8 +23,18 @@ SET(CMAKE_INCLUDE_CURRENT_DIR ON)
 #set(CMAKE_OSX_DEPLOYMENT_TARGET 10.7)
 #SET(CMAKE_CXX_FLAGS "-O2 -std=c++03 -stdlib=libc++ -Wall -mmacosx-version-min=10.7")
 
-SET(Qt5_DIR /usr/local/Cellar/qt/5.14.2/)
-list(APPEND CMAKE_PREFIX_PATH ${Qt5_DIR})
+message(STATUS "Start!!")
+
+if(APPLE)
+    message(STATUS "This is APPLE")
+    SET(Qt5_DIR /usr/local/Cellar/qt/5.14.2/)
+    list(APPEND CMAKE_PREFIX_PATH ${Qt5_DIR})
+elseif(UNIX AND NOT APPLE)
+    message(STATUS "This is LINUX")
+    SET(Qt5_DIR /home/kr/Qt/5.14.2/gcc_64/)
+    list(APPEND CMAKE_PREFIX_PATH ${Qt5_DIR})
+endif()
+
 
 
 #find_package(Qt5 COMPONENTS Widgets REQUIRED)
@@ -35,7 +45,11 @@ find_package(Qt5 REQUIRED Core Qml Quick Gui 3DCore 3DExtras 3DRender 3DInput 3D
 QT5_ADD_RESOURCES(RESOURCES ./qml.qrc)
 
 include_directories(/usr/local/include)
-include_directories(/usr/local/Cellar/eigen/3.3.7/include/eigen3) 
+if(APPLE)
+    include_directories(/usr/local/Cellar/eigen/3.3.7/include/eigen3) 
+elseif(UNIX AND NOT APPLE)
+    include_directories(/usr/include/eigen3)
+endif()
 link_directories(/usr/local/lib)
 
 
