@@ -75,6 +75,8 @@ void Slicing::SliceData()
   }
 
   //std::vector<std::vector<std::vector<point>>> layer_polygons_end; //各レイヤのごとにポリゴンデータ縮小処理済み
+
+  //オフセットを作成
   layer_polygons_end.clear();
   std::vector<std::vector<point>> polygons_buf2;
   for(int i = 0; i < layer_polygons.size(); i++){
@@ -175,7 +177,6 @@ void Slicing::makeLine(std::vector<line>&line_datas ,plane _plane, triangle _tri
       }
       return ;
     }
-
   }
   //辺ACについて
   if( (A > 0 && C < 0) || (A <0 && C >0)){

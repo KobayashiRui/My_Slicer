@@ -33,6 +33,8 @@ class Slicing
 
         point float2int(point);
         float round_n(float, float);
+        
+
 
 
     public:
@@ -48,6 +50,8 @@ class Slicing
         Slicing();
         stl_data mesh_triangles;
         std::vector<std::vector<std::vector<point>>> layer_polygons_end; //各レイヤのごとにポリゴンデータ縮小処理済み
+        std::vector<std::vector<std::vector<point>>> after_rotation_layer_polygons_end; //回転前のデータ
+        bool ArcMode = false; //扇状スライサのON,OFF
         void SliceData();
 
 };

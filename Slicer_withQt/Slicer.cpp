@@ -64,6 +64,8 @@ Qt3DRender::QGeometry* Slicer::exeSlicing(Qt3DRender::QGeometry *geometry)
 
             }
             std::cout << "triangle data : " << slicing.mesh_triangles.triangles.size() << std::endl;
+
+            //スライスをする
             slicing.SliceData();
 
             //スライス結果をgeometryに適用する
