@@ -49,7 +49,7 @@ Entity {
 
     GeometryRenderer{
         id:path_geometry_renderer
-        primitiveType : GeometryRenderer.LineLoop
+        primitiveType : GeometryRenderer.LineStrip
 
     }
 

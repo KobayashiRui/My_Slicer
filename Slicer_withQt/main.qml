@@ -37,8 +37,10 @@ Item {
             //Qt.quit()
         }
     }
-
     Row{
+
+    Column{
+        id:control_buttons
         Button {
             text:"Get Mesh"
             onClicked: {
@@ -76,13 +78,25 @@ Item {
                 
             }
         }
+        Switch{
+            id: arc_mode
+            text:"Arc Mode"
+            onClicked:{
+                console.log("Switch")
+                console.log(arc_mode.checked)
+                console.log(root.height)
+                console.log(root.width)
+            }
+        }
     }
 
     Rectangle {
         id: scene
-        anchors.fill: parent
-        anchors.margins: 50
+        //anchors.fill: parent
+        //anchors.margins: 50
         color: "White"
+        width:root.width-control_buttons.width
+        height:root.height
 
         transform: Rotation {
             id: sceneRotation
@@ -95,8 +109,8 @@ Item {
 
         Scene3D {
             id: scene3d
-            width:300
-            height:300
+            //width:300
+            //height:300
             anchors.fill: parent
             anchors.margins: 10
             focus: true
@@ -114,9 +128,11 @@ Item {
     Rectangle {
         id: scene_2
         visible : false
-        anchors.fill: parent
-        anchors.margins: 50
+        //anchors.fill: parent
+        //anchors.margins: 50
         color: "White"
+        width:root.width-control_buttons.width
+        height:root.height
 
         transform: Rotation {
             id: sceneRotation_2
@@ -129,8 +145,8 @@ Item {
 
         Scene3D {
             id: scene3d_2
-            width:300
-            height:300
+            //width:300
+            //height:300
             anchors.fill: parent
             anchors.margins: 10
             focus: true
@@ -143,6 +159,7 @@ Item {
                 id:root3d_2
             }
         }
+    }
     }
 
 }
